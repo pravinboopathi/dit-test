@@ -1,21 +1,11 @@
 "use client";
 
-import Link from 'next/link';
-import Image from 'next/image';
-import { useState, useEffect } from 'react';
+import Link from "next/link";
+import Image from "next/image";
+import { useState } from "react";
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isClient, setIsClient] = useState(false);
-
-  // Using useEffect to detect client-side rendering
-  useEffect(() => {
-    // Set state to true when component has mounted (client-side only)
-    setIsClient(true);
-  }, []);
-
-  // Conditional rendering to prevent hydration errors
-  if (!isClient) return null; // Prevent rendering until the client-side render
 
   return (
     <nav className="bg-white sticky top-0 z-50 py-3 border-b">
@@ -36,7 +26,7 @@ const Navbar: React.FC = () => {
           </div>
 
           {/* Desktop Links */}
-                    <div className="hidden md:flex flex-grow justify-center space-x-6 text-base font-normal">
+          <div className="hidden lg:flex flex-grow justify-center space-x-6 text-base font-normal">
             <Link href="/service" className="text-gray-800">
               Service
             </Link>
@@ -54,8 +44,8 @@ const Navbar: React.FC = () => {
             </Link>
           </div>
 
-          {/* "Contact" Button (Right Aligned) */}
-          <div className="hidden md:flex">
+          {/* "Contact" Button (Desktop Only) */}
+          <div className="hidden lg:flex">
             <Link href="/contact">
               <button className="px-4 py-2 text-white text-lg bg-[#343434] rounded-xl">
                 Contact
@@ -64,10 +54,10 @@ const Navbar: React.FC = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden">
+          <div className="lg:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-800 focus:outline-none"
+              className="text-gray-800 focus:outline-none "
             >
               {isOpen ? (
                 <span>&#10005;</span> // Close icon (X)
@@ -81,9 +71,8 @@ const Navbar: React.FC = () => {
 
       {/* Mobile Links */}
       {isOpen && (
-        <div className="md:hidden bg-white ">
-          {/* Left-aligned menu items */}
-          <div className="flex flex-col items-start">
+        <div className="lg:hidden bg-white">
+          <div className="flex flex-col items-start px-4 py-2">
             <Link href="/service" className="block px-4 py-2 text-gray-800 hover:bg-blue-100">
               Service
             </Link>
