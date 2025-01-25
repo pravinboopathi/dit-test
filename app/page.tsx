@@ -3,7 +3,15 @@ import Head from 'next/head';
 import Navbar from '../components/Navbar'; // Adjust the path if necessary
 import HeroSection from '@/components/HeroSection';
 import DashboardImage from '@/components/DashboardImage';
-// import LogoSlider from '@/components/InfiniteScroll';
+import TrustedBrands from '@/components/TrustedBrands';
+import Works from '@/components/Work';
+import FrequentlyAskedQuestions from '@/components/FrequentlyAskedQuestions';
+import WhyUs from '@/components/WhyUs';
+import Footer from '@/components/Footer';
+import IdeaSection from '@/components/IdeaSection';
+import ExploreCourses from '@/components/ExploreCourses';
+import Services from '@/components/Services';
+
 
 const Home: NextPage = () => {
   return (
@@ -15,7 +23,14 @@ const Home: NextPage = () => {
       <Navbar />
       <HeroSection />
       <DashboardImage />
-      {/* <LogoSlider /> */}
+      <TrustedBrands />
+      <Works />
+      <ExploreCourses/>
+      <WhyUs />
+      <Services />
+      <FrequentlyAskedQuestions />
+      <IdeaSection />
+      <Footer />
     </div>
   );
 };
