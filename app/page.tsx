@@ -21,10 +21,10 @@ const Home: NextPage = () => {
       <DashboardImage />
       <TrustedBrands />
       <Works />
-      <FrequentlyAskedQuestions />
-      <WhyUs />
-      <ExploreCourses />
       <Services />
+      <ExploreCourses />
+      <WhyUs />
+      <FrequentlyAskedQuestions />
       <IdeaSection />
     </>
   );

@@ -1,4 +1,3 @@
-// filepath: /c:/Users/ASUS/OneDrive/Desktop/DivineInfotech/divine/components/Footer.tsx
 "use client";
 
 import React from 'react';
@@ -10,17 +9,17 @@ const Footer: React.FC = () => {
   const socialLinks = [
     { 
       name: 'Facebook', 
-      icon: <FaFacebookSquare className="text-blue-700 hover:text-blue-800 transform hover:scale-110 transition-transform duration-300" />, 
+      icon: <FaFacebookSquare className="text-blackduration-300" />, 
       href: '' 
     },
     { 
       name: 'Instagram', 
-      icon: <FaInstagram className="text-pink-500 hover:text-pink-600 transform hover:scale-110 transition-transform duration-300" />, 
+      icon: <FaInstagram className="text-black transform hover:scale-110 transition-transform duration-300" />, 
       href: 'https://www.instagram.com/divine.infotech' 
     },
     { 
       name: 'LinkedIn', 
-      icon: <FaLinkedin className="text-blue-500 hover:text-blue-600 transform hover:scale-110 transition-transform duration-300" />, 
+      icon: <FaLinkedin className="text-black transform hover:scale-110 transition-transform duration-300" />, 
       href: 'https://www.linkedin.com/company/divineinfotech-edu/' 
     },
   ];
@@ -40,13 +39,13 @@ const Footer: React.FC = () => {
   ];
 
   // Determine the footer background color
-  const footerClass = "bg-white text-black";
+  const footerClass = "bg-gray-50 text-black";
 
   // Determine <hr> color
-  const hrColor = 'border-blue-400';
+  const hrColor = 'border-gray-400';
 
   // Determine footer link text color
-  const footLink = 'text-blue-600';
+  const footLink = 'text-black';
 
   return (
     <footer id='footer' className={`${footerClass} z-50 py-8 px-5 md:pt-20 md:px-20`}>
@@ -83,7 +82,7 @@ const Footer: React.FC = () => {
                   <li key={index} className='pt-2'>
                     <a
                       href={link.href}
-                      className={`${footLink} hover:text-black font-semibold block text-sm md:text-base underline-offset-4 transition-colors duration-300 hover:underline`}
+                      className={`${footLink} hover:text-gray-700 font-semibold block text-sm md:text-base underline-offset-4 transition-colors duration-300 hover:underline`}
                     >
                       {link.name}
                     </a>
@@ -98,7 +97,7 @@ const Footer: React.FC = () => {
                   <li key={index} className='pt-2'>
                     <a
                       href={link.href}
-                      className={`${footLink} hover:text-black font-semibold block text-sm md:text-base underline-offset-4 transition-colors duration-300 hover:underline`}
+                      className={`${footLink} hover:text-gray-700 font-semibold block text-sm md:text-base underline-offset-4 transition-colors duration-300 hover:underline`}
                     >
                       {link.name}
                     </a>
