@@ -23,7 +23,6 @@ const Home: NextPage = () => {
       <Works />
       <FrequentlyAskedQuestions />
       <WhyUs />
-     
       <ExploreCourses />
       <Services />
       <IdeaSection />
