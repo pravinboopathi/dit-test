@@ -45,18 +45,18 @@ const worksData = [
 
 const Works = () => {
   return (
-    <div className=" bg-white py-12">
+    <div className="bg-white py-12">
       <div className="text-center mb-12">
         <h1 className="text-5xl font-medium text-black">Our Works.</h1>
         <p className="text-gray-600 font-normal mt-2">
           Explore our featured projects and platforms
         </p>
       </div>
-      <div className="flex justify-between flex-wrap gap-6 mx-auto max-w-5xl">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mx-auto max-w-5xl px-4">
         {worksData.map((work, index) => (
           <div
             key={index}
-            className="bg-white border-2 border-gray-100 rounded-lg  overflow-hidden w-[48%] "
+            className="bg-white border-2 border-gray-100 rounded-lg overflow-hidden"
           >
             {/* Header Section */}
             <div className="relative p-6 pb-2">
@@ -67,30 +67,29 @@ const Works = () => {
                 height={500}
                 className="w-full h-68 object-cover border-2 rounded-lg border-black-200"
               />
-
             </div>
 
             {/* Content Section */}
             <div className="p-6">
-            <div className="flex flex-wrap gap-2 mb-4">
+              <div className="flex flex-wrap gap-2 mb-4">
                 {work.tags.map((tag, tagIndex) => (
                   <span
                     key={tagIndex}
-                    className=" text-gray-600 rounded-full px-3 py-1 text-sm border border-gray-200"
+                    className="text-gray-600 rounded-full px-3 py-1 text-sm border border-gray-200"
                   >
                     {tag}
                   </span>
                 ))}
               </div>
               <p className="text-gray-700 mb-4">{work.description}</p>
-              
-              <div className="flex ">
-              <button className="hover:shadow-xl bg-gray-900  text-white px-4 py-2 rounded-md transition-colors duration-300">
-              Demo
-            </button>
+
+              <div className="flex">
+                <button className="hover:shadow-xl bg-gray-900 text-white px-4 py-2 rounded-md transition-colors duration-300">
+                  Demo
+                </button>
                 <button className="border-2 text-gray-700 px-4 py-2 rounded-md transition-colors duration-300 hover:shadow-md ml-4">
-              View More
-            </button>
+                  View More
+                </button>
               </div>
             </div>
           </div>

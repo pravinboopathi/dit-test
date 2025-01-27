@@ -114,29 +114,46 @@ const ExploreCourses = () => {
         <h1 className="text-5xl font-normal text-center text-gray-800 mb-6">
           Explore Our Courses
         </h1>
-        <div className="flex justify-center mb-8 space-x-4">
-          {["bestSelling", "otherCourses", "freeCourses"].map((tab) => (
-            <button
-              key={tab}
-              className={`px-4 py-2 rounded-full font-medium ${activeTab === tab
-                ? "bg-gradient-to-r from-black to-gray-800 text-white shadow-lg"
-                : "bg-gray-200 text-gray-800 hover:bg-gray-300"
-                } transition-all duration-300 transform ${activeTab === tab ? "scale-110" : "scale-100"
+        <div className="mb-8">
+          {/* Desktop and Tablet View: Horizontal Buttons */}
+          <div className="hidden sm:flex justify-center space-x-4">
+            {["bestSelling", "otherCourses", "freeCourses"].map((tab) => (
+              <button
+                key={tab}
+                className={`px-6 py-3 rounded-full font-medium transition-all duration-300 transform ${
+                  activeTab === tab
+                    ? "bg-gradient-to-r from-black to-gray-800 text-white shadow-lg scale-110"
+                    : "bg-white text-black border border-gray-300 hover:bg-black hover:text-white"
                 }`}
-              onClick={() => setActiveTab(tab)}
-            >
-              {tab === "bestSelling"
-                ? "Best Selling"
-                : tab === "otherCourses"
+                onClick={() => setActiveTab(tab)}
+              >
+                {tab === "bestSelling"
+                  ? "Best Selling"
+                  : tab === "otherCourses"
                   ? "Other Courses"
                   : "Free Courses"}
-            </button>
-          ))}
+              </button>
+            ))}
+          </div>
+
+          {/* Mobile View: Dropdown Menu */}
+          <div className="sm:hidden px-4">
+            <select
+              className="w-full px-4 py-3 border border-gray-300 rounded-full text-black bg-white focus:outline-none focus:ring-2 focus:ring-black"
+              value={activeTab}
+              onChange={(e) => setActiveTab(e.target.value)}
+            >
+              <option value="bestSelling">Best Selling</option>
+              <option value="otherCourses">Other Courses</option>
+              <option value="freeCourses">Free Courses</option>
+            </select>
+          </div>
         </div>
 
         <div
-          className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 transition-opacity duration-500 ${activeTab === "bestSelling" ? "opacity-100" : "opacity-0"
-            }`}
+          className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 transition-opacity duration-500 ${
+            activeTab === "bestSelling" ? "opacity-100" : "opacity-0"
+          }`}
           style={{
             display: activeTab === "bestSelling" ? "grid" : "none",
           }}
@@ -145,8 +162,9 @@ const ExploreCourses = () => {
         </div>
 
         <div
-          className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 transition-opacity duration-500 ${activeTab === "otherCourses" ? "opacity-100" : "opacity-0"
-            }`}
+          className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 transition-opacity duration-500 ${
+            activeTab === "otherCourses" ? "opacity-100" : "opacity-0"
+          }`}
           style={{
             display: activeTab === "otherCourses" ? "grid" : "none",
           }}
@@ -155,8 +173,9 @@ const ExploreCourses = () => {
         </div>
 
         <div
-          className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 transition-opacity duration-500 ${activeTab === "freeCourses" ? "opacity-100" : "opacity-0"
-            }`}
+          className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 transition-opacity duration-500 ${
+            activeTab === "freeCourses" ? "opacity-100" : "opacity-0"
+          }`}
           style={{
             display: activeTab === "freeCourses" ? "grid" : "none",
           }}

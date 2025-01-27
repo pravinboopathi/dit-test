@@ -23,9 +23,10 @@ const Home: NextPage = () => {
       <Works />
       <FrequentlyAskedQuestions />
       <WhyUs />
-      <IdeaSection />
+     
       <ExploreCourses />
       <Services />
+      <IdeaSection />
     </>
   );
 };

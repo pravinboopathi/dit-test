@@ -42,7 +42,7 @@ const WhyUs: React.FC = () => {
     <div className="bg-white text-gray-800">
       <div className="container mx-auto px-8 py-12">
         <h2 className="text-5xl font-normal text-center mb-16 font-jua">Why Us?</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 justify-center pl-28">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-10 justify-center pl-8 sm:pl-16 md:pl-28">
           {reasons.map((reason, index) => (
             <div key={index} className="flex items-start space-x-4">
               {/* FontAwesomeIcon used here */}
@@ -51,7 +51,7 @@ const WhyUs: React.FC = () => {
                 className="text-pink-500 mt-5 text-[1.6em]"
               />
               <div>
-                <h3 className="text-[1.4em] font-semibold py-3 ">{reason.title}</h3>
+                <h3 className="text-[1.4em] font-semibold py-3">{reason.title}</h3>
                 <p className="text-gray-500 font-medium text-[1.1em] max-w-[500px]">
                   {reason.description}
                 </p>
@@ -62,7 +62,6 @@ const WhyUs: React.FC = () => {
       </div>
     </div>
   );
-  
 };
 
 export default WhyUs;
