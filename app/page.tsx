@@ -12,7 +12,7 @@ import Services from '@/components/Services';
 
 const Home: NextPage = () => {
   return (
-    <div>
+    <>
       <Head>
         <title>Divine Infotech</title>
         <meta name="description" content="Next-Generation AI Tools for Smarter Business" />
@@ -26,7 +26,7 @@ const Home: NextPage = () => {
       <IdeaSection />
       <ExploreCourses />
       <Services />
-    </div>
+    </>
   );
 };
 
