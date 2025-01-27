@@ -40,7 +40,7 @@ const Footer: React.FC = () => {
         { name: 'Refund Policy', href: '/refundpolicy' },
     ];
 
-    const footerClass = "bg-gray-100 text-black";
+    const footerClass = "bg-gray-50 text-black";
     const hrColor = "border-gray-400";
 
     return (
