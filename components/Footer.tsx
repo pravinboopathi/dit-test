@@ -1,3 +1,4 @@
+// filepath: /c:/Users/ASUS/OneDrive/Desktop/DivineInfotech/divine/components/Footer.tsx
 "use client";
 
 import React from 'react';
@@ -52,7 +53,7 @@ const Footer: React.FC = () => {
       <div className="container mx-auto">
         <div className="flex flex-wrap justify-between lg:justify-evenly">
           <div className="w-full lg:w-4/12 px-4 mb-8 lg:mb-0">
-            <h4 className="md:text-3xl text-2xl font-semibold mb-4">Let's keep in touch!</h4>
+            <h4 className="md:text-3xl text-2xl font-semibold mb-4">Let&apos;s keep in touch!</h4>
             <h5 className="md:text-lg text-sm mb-6">
               Find us on any of these platforms, we respond 1-2 business days.
             </h5>
