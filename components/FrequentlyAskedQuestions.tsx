@@ -57,7 +57,7 @@ const FrequentlyAskedQuestions = () => {
             Frequently Asked Questions
           </h1>
           <p className="mt-4 text-lg text-gray-600">
-            Have any questions? Don't hesitate to contact us!
+            Have any questions? Don&apos;t hesitate to contact us!
           </p>
           <button className="mt-6 bg-gray-900 text-white py-2 px-6 rounded-lg flex items-center font- hover:bg-gray-800 transition">
             Get A Quote{" "}

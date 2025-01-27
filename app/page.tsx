@@ -1,6 +1,6 @@
 import { NextPage } from 'next';
 import Head from 'next/head';
-import Navbar from '../components/Navbar'; // Adjust the path if necessary
+import Navbar from '@/components/Navbar';
 import HeroSection from '@/components/HeroSection';
 import DashboardImage from '@/components/DashboardImage';
 import TrustedBrands from '@/components/TrustedBrands';
@@ -11,7 +11,6 @@ import Footer from '@/components/Footer';
 import IdeaSection from '@/components/IdeaSection';
 import ExploreCourses from '@/components/ExploreCourses';
 import Services from '@/components/Services';
-
 
 const Home: NextPage = () => {
   return (
@@ -25,11 +24,11 @@ const Home: NextPage = () => {
       <DashboardImage />
       <TrustedBrands />
       <Works />
-      <ExploreCourses/>
-      <WhyUs />
-      <Services />
       <FrequentlyAskedQuestions />
+      <WhyUs />
       <IdeaSection />
+      <ExploreCourses />
+      <Services />
       <Footer />
     </div>
   );

@@ -6,6 +6,7 @@ import "swiper/css"; // Import Swiper styles
 import "swiper/css/pagination";
 import "swiper/css/effect-fade"; // Import fade effect styles
 import { Pagination, Autoplay, EffectFade } from "swiper/modules";
+import Image from "next/image";
 
 const DashboardImage: React.FC = () => {
   // Array of image data
@@ -32,9 +33,12 @@ const DashboardImage: React.FC = () => {
         >
           {images.map((image, index) => (
             <SwiperSlide key={index}>
-              <img
+              <Image
                 src={image.src} // Ensure images are in the 'public/images' folder
                 alt={image.alt}
+                layout="responsive"
+                width={1100}
+                height={500}
                 className="object-cover w-full h-auto"
               />
             </SwiperSlide>
