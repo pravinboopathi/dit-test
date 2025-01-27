@@ -19,17 +19,19 @@ const Home: NextPage = () => {
         <title>Divine Infotech</title>
         <meta name="description" content="Next-Generation AI Tools for Smarter Business" />
       </Head>
-      <Navbar />
+
       <HeroSection />
       <DashboardImage />
       <TrustedBrands />
       <Works />
-      <FrequentlyAskedQuestions />
-      <WhyUs />
-      <IdeaSection />
+
+
       <ExploreCourses />
       <Services />
-      <Footer />
+      <WhyUs />
+      <FrequentlyAskedQuestions />
+
+      <IdeaSection />
     </div>
   );
 };

@@ -18,22 +18,23 @@ const services: Service[] = [
     description:
       "Delivering responsive and dynamic web development services using modern technologies to create engaging and efficient user experiences for all.",
     technologies: "React | Next.js | TypeScript",
-    image: "/images/apps.png",
+    image: "/images/web (1).png",
   },
   {
     title: "App Development",
     description:
       "Creating seamless and efficient mobile applications with intuitive user interfaces and robust performance for iOS and Android platforms.",
     technologies: "Flutter | React Native",
-    image: "/images/mobile.png",
+    image:"/images/app-development.png",
   },
   {
-    title: "UI/UX Design",
+    title: "Software Development",
     description:
-      "Designing aesthetically pleasing and user-friendly interfaces with a focus on enhancing usability and accessibility.",
-    technologies: "Figma | Adobe XD",
-    image: "/images/software.png",
+      "Building robust, scalable, and efficient software solutions tailored to client needs, leveraging modern technologies and best practices.",
+    technologies: "JavaScript | Python | Java",
+    image: "/images/native.png",
   },
+  
 ];
 
 const ServiceCard: FC<{ service: Service }> = ({ service }) => {
