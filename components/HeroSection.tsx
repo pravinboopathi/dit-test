@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image"; // Import the Image component from next/image
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
 
@@ -56,32 +57,32 @@ const HeroSection: React.FC = () => {
       </div>
 
       <div className="absolute inset-0 z-0">
-        <img
+        <Image
           alt="Floating 3D cube with gradient colors"
-          height="50"
+          height={50}
           src="/images/ss.png"
-          width="80"
+          width={80}
           className="absolute animate-float top-10 sm:top-20 left-10 sm:left-40"
         />
-        <img
+        <Image
           alt="Floating 3D oval with gradient colors"
-          height="70"
+          height={70}
           src="/images/sc.png"
-          width="70"
+          width={70}
           className="absolute animate-rotate top-5 sm:top-10 right-10 sm:right-40"
         />
-        <img
+        <Image
           alt="Floating 3D sphere with gradient colors"
-          height="50"
+          height={50}
           src="/images/scc.png"
-          width="50"
+          width={50}
           className="absolute animate-float bottom-2 sm:bottom-5 left-10 sm:left-60"
         />
-        <img
+        <Image
           alt="Floating 3D cube with gradient colors"
-          height="70"
+          height={70}
           src="/images/ss.png"
-          width="70"
+          width={70}
           className="absolute animate-float bottom-2 sm:bottom-5 right-10 sm:right-60"
         />
       </div>
