@@ -39,7 +39,7 @@ const Footer: React.FC = () => {
   ];
 
   // Determine the footer background color
-  const footerClass = "bg-gray-100 text-black";
+  const footerClass = "bg-gray-50 text-black";
 
   // Determine <hr> color
   const hrColor = 'border-gray-400';

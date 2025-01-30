@@ -1,10 +1,24 @@
+
+"use client"; 
+
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+
 import { FaUpload, FaPaperPlane, FaCheckCircle, FaTimes } from 'react-icons/fa';
 import axios from 'axios';
 
-const ApplicationForm = ({ setShowModal }) => {
-  const [formData, setFormData] = useState({
+interface ApplicationFormProps {
+  setShowModal: (show: boolean) => void;
+}
+
+const ApplicationForm: React.FC<ApplicationFormProps> = ({ setShowModal }) => {
+  const [formData, setFormData] = useState<{
+    name: string;
+    email: string;
+    phone: string;
+    position: string;
+    resume: File | null;
+    message: string;
+  }>({
     name: '',
     email: '',
     phone: '',
@@ -12,13 +26,14 @@ const ApplicationForm = ({ setShowModal }) => {
     resume: null,
     message: ''
   });
-  const [errors, setErrors] = useState({});
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [uploadProgress, setUploadProgress] = useState(0);
+  
+  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+  const [uploadProgress, setUploadProgress] = useState<number>(0);
 
   const positions = ['Software Developer', 'Graphic Designer', 'Technical Trainer'];
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prevState => ({
       ...prevState,
@@ -29,8 +44,8 @@ const ApplicationForm = ({ setShowModal }) => {
     }
   };
 
-  const handleFileChange = (e) => {
-    const file = e.target.files[0];
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
     if (file) {
       if (file.size > 5 * 1024 * 1024) {
         setErrors(prevErrors => ({ ...prevErrors, resume: 'File size should be less than 5MB' }));
@@ -49,18 +64,21 @@ const ApplicationForm = ({ setShowModal }) => {
   };
 
   const validateForm = () => {
-    const newErrors = {};
+    const newErrors: Record<string, string> = {};
     if (!formData.name.trim()) newErrors.name = "Name is required";
     if (!formData.email.trim() || !/\S+@\S+\.\S+/.test(formData.email)) newErrors.email = "Valid email is required";
     if (!formData.phone.trim() || !/^\d{10}$/.test(formData.phone)) newErrors.phone = "Valid 10-digit phone number is required";
     if (!formData.position) newErrors.position = "Please select a position";
     if (!formData.resume) newErrors.resume = "Please upload your resume";
+    
     setErrors(newErrors);
+    
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    
     if (validateForm()) {
       setIsSubmitting(true);
       try {
@@ -100,8 +118,8 @@ const ApplicationForm = ({ setShowModal }) => {
     }
   };
 
-  return (
-    <section className="mb-20">
+  return (<>
+    <section className="mb-20 mt-10">
       <h2 className="text-3xl font-bold text-blue-800 mb-8 text-center">Take the Leap: Apply Now</h2>
       <form onSubmit={handleSubmit} className="bg-white p-8 rounded-xl shadow-xl max-w-2xl mx-auto border border-blue-100">
         <div className="mb-6">
@@ -117,6 +135,7 @@ const ApplicationForm = ({ setShowModal }) => {
           />
           {errors.name && <p className="text-red-500 text-sm mt-1">{errors.name}</p>}
         </div>
+        
         <div className="mb-6">
           <label htmlFor="email" className="block text-gray-700 font-bold mb-2">Email</label>
           <input
@@ -130,6 +149,7 @@ const ApplicationForm = ({ setShowModal }) => {
           />
           {errors.email && <p className="text-red-500 text-sm mt-1">{errors.email}</p>}
         </div>
+        
         <div className="mb-6">
           <label htmlFor="phone" className="block text-gray-700 font-bold mb-2">Phone</label>
           <input
@@ -143,6 +163,7 @@ const ApplicationForm = ({ setShowModal }) => {
           />
           {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone}</p>}
         </div>
+        
         <div className="mb-6">
           <label htmlFor="position" className="block text-gray-700 font-bold mb-2">Position</label>
           <select
@@ -160,6 +181,7 @@ const ApplicationForm = ({ setShowModal }) => {
           </select>
           {errors.position && <p className="text-red-500 text-sm mt-1">{errors.position}</p>}
         </div>
+        
         <div className="mb-6">
           <label htmlFor="resume" className="block text-gray-700 font-bold mb-2">Upload Resume</label>
           <div className="relative">
@@ -174,15 +196,14 @@ const ApplicationForm = ({ setShowModal }) => {
             />
             <label
               htmlFor="resume"
-              className={`w-full px-3 py-2 border ${
-                errors.resume ? 'border-red-500' : 'border-gray-300'
-              } rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer flex items-center justify-center`}
+              className={`w-full px-3 py-2 border ${errors.resume ? 'border-red-500' : 'border-gray-300'} rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer flex items-center justify-center`}
             >
               <FaUpload className="mr-2" />
               {formData.resume ? formData.resume.name : 'Choose file'}
             </label>
           </div>
           {errors.resume && <p className="text-red-500 text-sm mt-1">{errors.resume}</p>}
+          
           {uploadProgress > 0 && uploadProgress < 100 && (
             <div className="mt-2">
               <div className="bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
@@ -195,6 +216,7 @@ const ApplicationForm = ({ setShowModal }) => {
             </div>
           )}
         </div>
+
         <div className="mb-6">
           <label htmlFor="message" className="block text-gray-700 font-bold mb-2">Why You're Perfect for This Role (Optional)</label>
           <textarea
@@ -203,15 +225,16 @@ const ApplicationForm = ({ setShowModal }) => {
             value={formData.message}
             onChange={handleInputChange}
             className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
-            rows="4"
+            rows={4}
             placeholder="Tell us why you're excited about this position and what unique skills you bring to the table."
           ></textarea>
         </div>
+
         <div>
           <button
             type="submit"
             disabled={isSubmitting}
-            className={`w-full bg-blue-600 text-white px-4 py-3 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition duration-300 flex items-center justify-center ${isSubmitting ? 'opacity-50 cursor-not-allowed' : ''}`}
+            className={`w-full bg-blue-600 text-white px-4 py-3 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition duration-300 flex items-center justify-center ${isSubmitting ? 'opacity-50 cursor-not-alowed' : ''}`}
           >
             {isSubmitting ? 'Submitting...' : 'Launch Your Career with Us'}
             {!isSubmitting && <FaPaperPlane className="ml-2" />}
@@ -219,8 +242,15 @@ const ApplicationForm = ({ setShowModal }) => {
         </div>
       </form>
     </section>
+    <section className="mt-16 text-center">
+          <h2 className="text-2xl font-semibold text-blue-800 mb-4">Don't Wait — Your Dream Career Starts Here!</h2>
+          <p className="text-gray-600 flex items-center justify-center">
+         
+            At Divine Infotech, we don't just hire employees; we invest in dreamers, creators, and leaders.
+          </p>
+        </section>
+    </>
   );
 };
 
 export default ApplicationForm;
-

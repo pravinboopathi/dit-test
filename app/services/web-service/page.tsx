@@ -7,25 +7,54 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import "tailwindcss/tailwind.css";
+
+const worksData = [
+  {
+    title: "Demo Portal",
+    description: "Screenshot of Demo Portal showing a calendar interface with various features.",
+    img: "/images/site.png",
+    tags: ["Realtime Matching", "Calendar sync", "Notifications", "Reports"],
+  },
+  {
+    title: "Freelance Platform",
+    description: "Screenshot of Freelance platform showing a dark-themed interface with various features.",
+    img: "/images/site.png",
+    tags: ["Freelance Directory", "Custom Quotation", "Track Progress", "Rating & Reviews"],
+  },
+  {
+    title: "E-Learning Hub",
+    description: "Screenshot of an E-Learning platform with interactive courses and user-friendly design.",
+    img: "/images/site.png",
+    tags: ["Interactive Courses", "User Tracking", "Video Tutorials", "Certifications"],
+  },
+  {
+    title: "E-Commerce Store",
+    description: "Screenshot of an online store featuring product listings and checkout functionality.",
+    img: "/images/site.png",
+    tags: ["Product Catalog", "Secure Payments", "Customer Reviews", "Order Tracking"],
+  },
+];
 
 const features = [
   {
     title: "100% Money Back Guarantee",
-    desc: "We won't charge you a penny if you are not satisfied with the output - never happened.",
+    desc: "We won't charge you a penny if you are not satisfied with the output - never happened. Our commitment to quality ensures you only pay when you're fully satisfied.",
   },
   {
     title: "Strictly Defined SLAs",
-    desc: "The products that we create follow strict SLAs and have never breached SLA so far.",
+    desc: "The products that we create follow strict SLAs and have never breached SLA so far. We pride ourselves on delivering quality and on-time results with complete adherence to agreed-upon service levels.",
   },
   {
     title: "Latest Technologies",
-    desc: "We use the latest technologies like Flutter, React, Next.js, and TypeScript.",
+    desc: "We use the latest technologies like Flutter, React, Next.js, and TypeScript. By leveraging these cutting-edge tools, we deliver high-performance solutions tailored to your unique business needs.",
   },
   {
     title: "Fully Modern UI, UX",
-    desc: "Our design is fully modern and in line with current trends.",
+    desc: "Our design is fully modern and in line with current trends. We prioritize creating seamless, user-friendly interfaces that enhance the overall user experience and engage users effectively.",
   },
 ];
+
 
 const WebDevelopment: React.FC = () => {
   const [logos, setLogos] = useState<{ src: string; alt: string }[]>([]);
@@ -56,20 +85,21 @@ const WebDevelopment: React.FC = () => {
   }, []);
 
   return (
-    <div className="bg-white text-black min-h-screen py-12 px-6">
+    <div className="bg-white text-gray-600 min-h-screen py-12 px-6">
+
       {/* Hero Section */}
       <div className="text-center max-w-7xl mx-auto">
-        <h1 className="text-5xl font-normal">Web Development</h1>
-        <p className="mt-4 text-lg">
-          At Divine Infotech, we offer professional web development services that cater to your business needs. From responsive website design to robust backend solutions, we deliver high-quality web development that drives results.
+        <h1 className="text-5xl font-semibold text-gray-800">Web Development</h1>
+        <p className="mt-4 text-lg text-gray-600">
+          At Divine Infotech, we offer professional web development services that cater to your business needs.
         </p>
       </div>
 
       {/* Features Section */}
-      <div className="bg-white py-12 px-6 justify-center mt-4">
+      <div className="bg-white py-12 px-6 mt-10">
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
           {features.map((feature, index) => (
-            <div key={index} className="flex items-start space-x-4">
+            <div key={index} className="flex items-start space-x-4 p-4">
               <FontAwesomeIcon icon={faCheck} className="text-pink-500 mt-1 text-[1.6em]" />
               <div>
                 <h3 className="text-[1.4em] text-gray-900 mb-2 font-semibold">{feature.title}</h3>
@@ -79,9 +109,9 @@ const WebDevelopment: React.FC = () => {
           ))}
         </div>
       </div>
-
+     
       {/* Trusted Brands Section */}
-      <section className="py-16">
+      <section className="py-16 ">
         <div className="max-w-screen-full mx-auto text-center">
           <h2 className="text-5xl font-medium mb-16 text-gray-800">Tech stack Used.</h2>
           <div className="relative overflow-hidden">
@@ -100,21 +130,70 @@ const WebDevelopment: React.FC = () => {
         </div>
       </section>
 
-      {/* Contact CTA */}
-      <div className="mt-16 text-center">
-        <h2 className="text-3xl font-bold">Let's Build Your Website</h2>
-        <p className="mt-4 text-lg">
-          Get a high-performance website tailored to your needs.
-        </p>
-        <Link href="/contact">
-          <motion.button
-            whileHover={{ scale: 1.1 }}
-            className="mt-6 bg-gray-900 text-white px-6 py-3 rounded-lg shadow-md"
-          >
-            Contact Us
-          </motion.button>
-        </Link>
+      {/* Works Section */}
+<div className="bg-white py-12">
+  <div className="text-center mb-12">
+    <h1 className="text-5xl font-medium text-black">Our Product</h1>
+    <p className="text-gray-600 font-normal mt-2">
+      Explore our featured projects and platforms.
+    </p>
+  </div>
+  <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mx-auto max-w-5xl px-4 mt-12">
+    {worksData.slice(0, 4).map((work, index) => (
+      <div key={index} className="bg-white border-2 border-gray-100 rounded-lg overflow-hidden">
+        {/* Header Section */}
+        <div className="relative p-6 pb-2">
+          <Image
+            src={work.img}
+            alt={work.description}
+            width={500}
+            height={500}
+            className="w-full h-68 object-cover border-2 rounded-lg border-black-200"
+          />
+        </div>
+
+        {/* Content Section */}
+        <div className="p-6">
+          <div className="flex flex-wrap gap-2 mb-4">
+            {work.tags.map((tag, tagIndex) => (
+              <span
+                key={tagIndex}
+                className="text-gray-600 rounded-full px-3 py-1 text-sm border border-gray-200"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+          <p className="text-gray-700 mb-4">{work.description}</p>
+
+          <div className="flex">
+            <button className="hover:shadow-xl bg-gray-900 text-white px-4 py-2 rounded-md transition-colors duration-300">
+              Demo
+            </button>
+            <button className="border-2 text-gray-700 px-4 py-2 rounded-md transition-colors duration-300 hover:shadow-md ml-4">
+              View More
+            </button>
+          </div>
+        </div>
       </div>
+    ))}
+  </div>
+</div>
+
+{/* Contact CTA */}
+<div className="mt-16 text-center">
+  <h2 className="text-3xl text-gray-900 font-bold">Ready to Take Your Website to the Next Level?</h2>
+  <p className="mt-4 text-lg">We craft high-performance, user-friendly websites designed to grow with your business.</p>
+  <Link href="/contact">
+    <motion.button
+      whileHover={{ scale: 1.1 }}
+      className="mt-6 bg-gray-900 text-white px-6 py-3 text-lg rounded-full shadow-md"
+    >
+      Get in Touch
+    </motion.button>
+  </Link>
+</div>
+
     </div>
   );
 };

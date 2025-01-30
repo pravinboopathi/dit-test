@@ -45,13 +45,13 @@ const Navbar: React.FC = () => {
                   isServiceDropdownOpen ? "block" : "hidden"
                 } lg:group-hover:block`}
               >
-                <Link href="/services/software-services" className="block px-4 py-2 text-gray-800 hover:bg-blue-100">
+                <Link href="/services/web-service" className="block px-4 py-2 text-gray-800 hover:bg-blue-100">
                   Web Development
                 </Link>
                 <Link href="/services/app-services" className="block px-4 py-2 text-gray-800 hover:bg-blue-100">
                   App Development
                 </Link>
-                <Link href="/services/web-service" className="block px-4 py-2 text-gray-800 hover:bg-blue-100">
+                <Link href="/services/software-services" className="block px-4 py-2 text-gray-800 hover:bg-blue-100">
                   Software Development
                 </Link>
               </div>
@@ -121,13 +121,13 @@ const Navbar: React.FC = () => {
                 <ChevronDown className={`w-5 h-5 ml-2 transition-transform ${isServiceDropdownOpen ? "rotate-180" : ""}`} />
               </button>
               <div className={`${isServiceDropdownOpen ? "block" : "hidden"}`}>
-                <Link href="/service/web-development" className="block px-4 py-2 text-gray-800 hover:bg-blue-100">
+                <Link href="/services/web-service"className="block px-4 py-2 text-gray-800 hover:bg-blue-100">
                   Web Development
                 </Link>
-                <Link href="/service/app-development" className="block px-4 py-2 text-gray-800 hover:bg-blue-100">
+                <Link href="/services/app-services"  className="block px-4 py-2 text-gray-800 hover:bg-blue-100">
                   App Development
                 </Link>
-                <Link href="/service/software-development" className="block px-4 py-2 text-gray-800 hover:bg-blue-100">
+                <Link href="/services/software-services" className="block px-4 py-2 text-gray-800 hover:bg-blue-100">
                   Software Development
                 </Link>
               </div>
