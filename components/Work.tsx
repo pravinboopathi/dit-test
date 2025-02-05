@@ -97,17 +97,17 @@ const Works = () => {
 <div>
   {/* Top-Right Circle */}
   <div className="absolute top-[10%] right-[-180px]">
-    <img src="/images/circle2.png" alt="Top Right Circle" className="w-74 h-74" />
+    <Image src="/images/circle2.png" alt="Top Right Circle" width={296} height={296} />
   </div>
 
   {/* Bottom-Left Circle */}
   <div className="absolute bottom-[40%] left-[-180px]">
-    <img src="/images/circle2.png" alt="Bottom Left Circle" className="w-74 h-74" />
+    <Image src="/images/circle2.png" alt="Bottom Left Circle" width={296} height={296} />
   </div>
 
   {/* Bottom-Right Circle */}
   <div className="absolute bottom-[-10%] right-[-120px]">
-    <img src="/images/circle2.png" alt="Bottom Right Circle" className="w-74 h-74" />
+    <Image src="/images/circle2.png" alt="Bottom Right Circle" width={296} height={296} />
   </div>
 </div>
 

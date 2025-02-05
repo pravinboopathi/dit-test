@@ -219,7 +219,7 @@ const ApplicationForm: React.FC<ApplicationFormProps> = ({ setShowModal }) => {
           </div>
 
           <div className="mb-6">
-            <label htmlFor="message" className="block text-gray-700 font-medium mb-2">Why You're Perfect for This Role (Optional)</label>
+            <label htmlFor="message" className="block text-gray-700 font-medium mb-2">Why You&apos;re Perfect for This Role (Optional)</label>
             <textarea
               id="message"
               name="message"
@@ -227,7 +227,7 @@ const ApplicationForm: React.FC<ApplicationFormProps> = ({ setShowModal }) => {
               onChange={handleInputChange}
               className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-1 focus:ring-gray-300"
               rows={4}
-              placeholder="Tell us why you're excited about this position and what unique skills you bring to the table."
+              placeholder="Tell us why you&apos;re excited about this position and what unique skills you bring to the table."
             ></textarea>
           </div>
 
@@ -245,9 +245,9 @@ const ApplicationForm: React.FC<ApplicationFormProps> = ({ setShowModal }) => {
       </section>
    
       <section className="mt-16 text-center">
-        <h2 className="text-2xl font-bold text-gray-900 mb-4">Don't Wait — Your Dream Career Starts Here!</h2>
+        <h2 className="text-2xl font-bold text-gray-900 mb-4">Don&apos;t Wait — Your Dream Career Starts Here!</h2>
         <p className="text-gray-600 flex items-center justify-center">
-          At Divine Infotech, we don't just hire employees; we invest in dreamers, creators, and leaders.
+          At Divine Infotech, we don&apos;t just hire employees; we invest in dreamers, creators, and leaders.
         </p>
       </section>
     </>

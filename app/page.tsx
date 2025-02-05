@@ -9,7 +9,7 @@ import WhyUs from '@/components/WhyUs';
 import IdeaSection from '@/components/IdeaSection';
 import ExploreCourses from '@/components/ExploreCourses';
 import Services from '@/components/Services';
-import SocialServicespage from '@/components/SocialServicespage';
+
 
 
 const Home: NextPage = () => {
