@@ -18,7 +18,7 @@ const HeroSection: React.FC = () => {
       setCurrentWordIndex((prev) => (prev + 1) % words.length);
     }, 2000);
     return () => clearInterval(interval);
-  }, []);
+  }, [words.length]);
 
   const handleGoClick = () => {
     if (selectedOption) {

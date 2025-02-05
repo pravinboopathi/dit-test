@@ -1,4 +1,3 @@
-// SocialServicespage.tsx
 import React from "react";
 import { MdStar } from "react-icons/md"; // React Icons for star rating
 import { FaLinkedin, FaGoogle, FaInstagram } from "react-icons/fa";
@@ -9,7 +8,7 @@ const SocialServicespage: React.FC = () => {
       {/* Awards and Social Media Section */}
       <div className="mt-16 md:mt-20 text-center pb-14 px-2 md:pb-10">
         <h2 className="text-xl md:text-3xl font-bold text-gray-900 mb-6">
-          We are awarded by people's support through social media
+          We are awarded by people&apos;s support through social media
         </h2>
         <div className="flex justify-center items-center space-x-8">
           <a
