@@ -45,20 +45,19 @@ const worksData = [
 
 const Works = () => {
   return (
-    <div className="bg-white py-12">
+    <div className="bg-white py-12 relative overflow-hidden">
       <div className="text-center mb-12">
-        <h1 className="text-5xl font-medium text-black">Our Works.</h1>
+        <h1 className="text-6xl font-normal text-black">Our Works.</h1>
         <p className="text-gray-600 font-normal mt-2">
           Explore our featured projects and platforms
         </p>
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mx-auto max-w-5xl px-4">
+
+      {/* Works Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mx-auto max-w-[1100px] px-4 relative">
         {worksData.map((work, index) => (
-          <div
-            key={index}
-            className="bg-white border-2 border-gray-100 rounded-lg overflow-hidden"
-          >
-            {/* Header Section */}
+          <div key={index} className="bg-white border-2 border-gray-100 rounded-lg overflow-hidden">
+            {/* Image Section */}
             <div className="relative p-6 pb-2">
               <Image
                 src={work.img}
@@ -70,13 +69,11 @@ const Works = () => {
             </div>
 
             {/* Content Section */}
-            <div className="p-6">
+            <div className="px-7 py-2 pb-4">
+              <h2 className="text-2xl pb-1 font-semibold text-gray-900 mb-2">{work.title}</h2>
               <div className="flex flex-wrap gap-2 mb-4">
                 {work.tags.map((tag, tagIndex) => (
-                  <span
-                    key={tagIndex}
-                    className="text-gray-600 rounded-full px-3 py-1 text-sm border border-gray-200"
-                  >
+                  <span key={tagIndex} className="text-gray-600 rounded-full px-3 py-1 text-sm border border-gray-200">
                     {tag}
                   </span>
                 ))}
@@ -95,6 +92,26 @@ const Works = () => {
           </div>
         ))}
       </div>
+
+{/* Decorative Circles */}
+<div>
+  {/* Top-Right Circle */}
+  <div className="absolute top-[10%] right-[-180px]">
+    <img src="/images/circle2.png" alt="Top Right Circle" className="w-74 h-74" />
+  </div>
+
+  {/* Bottom-Left Circle */}
+  <div className="absolute bottom-[40%] left-[-180px]">
+    <img src="/images/circle2.png" alt="Bottom Left Circle" className="w-74 h-74" />
+  </div>
+
+  {/* Bottom-Right Circle */}
+  <div className="absolute bottom-[-10%] right-[-120px]">
+    <img src="/images/circle2.png" alt="Bottom Right Circle" className="w-74 h-74" />
+  </div>
+</div>
+
+
     </div>
   );
 };

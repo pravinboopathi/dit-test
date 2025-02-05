@@ -98,7 +98,7 @@ const WebDevelopment: React.FC = () => {
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8">
           {features.map((feature, index) => (
             <div key={index} className="flex items-start space-x-4 p-4">
-              <FontAwesomeIcon icon={faCheck} className="text-pink-500 mt-1 text-[1.6em]" />
+              <FontAwesomeIcon icon={faCheck} className="text-pink-500 mt-1 " />
               <div>
                 <h3 className="text-[1.4em] text-gray-900 mb-2 font-semibold">{feature.title}</h3>
                 <p className="text-gray-500 font-medium text-[1.1em] max-w-[800px]">{feature.desc}</p>

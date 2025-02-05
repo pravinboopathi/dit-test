@@ -44,10 +44,10 @@ const FrequentlyAskedQuestions = () => {
   };
 
   return (
-    <div className="bg-white text-black/80">
-      <div className="container mx-auto px-6 py-12 lg:flex lg:justify-between lg:items-start">
+    <div className="bg-white text-black/80 mt-10">
+      <div className="container max-w-screen-2xl mx-auto px-6 py-12 lg:flex lg:justify-between lg:items-start">
         {/* Left Section */}
-        <div className="lg:max-w-lg mb-10 lg:mb-0">
+        <div className="lg:max-w-2xl mb-10 lg:mb-0">
           <div>
             <button className="text-gray-700 text-lg border border-gray-300 py-2 px-4 rounded-lg font-semibold ">
               FAQs

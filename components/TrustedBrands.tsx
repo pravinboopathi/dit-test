@@ -34,7 +34,7 @@ const TrustedBrands: React.FC = () => {
   }, []);
 
   return (
-    <section className=" py-16">
+    <section className="bg-gray-100 py-16">
       <div className="max-w-screen-full mx-auto text-center">
         <h2 className="text-5xl font-medium mb-16 text-gray-800">Brands That Trust Us</h2>
         <div className="relative overflow-hidden">
@@ -62,6 +62,7 @@ const TrustedBrands: React.FC = () => {
           )}
         </div>
       </div>
+
     </section>
   );
 };

@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 interface Course {
   title: string;
@@ -10,12 +11,13 @@ interface Course {
   image: string;
   alt: string;
   rating: number;
+  path: string;
 }
 
 const ExploreCourses = () => {
   const [activeTab, setActiveTab] = useState("bestSelling");
+  const router = useRouter();
 
-  // Courses Data
   const bestSellingCourses: Course[] = [
     {
       title: "Become the Developer Companies Need",
@@ -24,6 +26,7 @@ const ExploreCourses = () => {
       image: "/images/web.png",
       alt: "Full Stack Development Course Image",
       rating: 4.5,
+      path: "/courses/web-dev",
     },
     {
       title: "Become the Developer Companies Need",
@@ -32,6 +35,7 @@ const ExploreCourses = () => {
       image: "/images/app.png",
       alt: "Full Stack Development Course Image",
       rating: 4.2,
+      path: "/courses/app-dev",
     },
     {
       title: "Become the Developer Companies Need",
@@ -40,8 +44,8 @@ const ExploreCourses = () => {
       image: "/images/python (2).png",
       alt: "Full Stack Development Course Image",
       rating: 4.8,
+      path: "/courses/software-dev",
     },
-    // Add other courses here
   ];
 
   const otherCourses: Course[] = [
@@ -52,17 +56,17 @@ const ExploreCourses = () => {
       image: "/images/digital.jpeg",
       alt: "Digital Marketing Course Image",
       rating: 4.1,
+      path: "/course/full-stack-web-development",
     },
   ];
 
   const freeCourses: Course[] = [];
 
-  // Function to render course cards
   const renderCourses = (courses: Course[]) => {
     return courses.map((course, index) => {
       const fullStars = Math.floor(course.rating);
-      const halfStar = course.rating % 1 !== 0; // Checks if there is a half-star
-      const emptyStars = 5 - fullStars - (halfStar ? 1 : 0); // Calculate empty stars
+      const halfStar = course.rating % 1 !== 0;
+      const emptyStars = 5 - fullStars - (halfStar ? 1 : 0);
 
       return (
         <div
@@ -82,22 +86,18 @@ const ExploreCourses = () => {
           <p className="text-gray-500 my-2 text-lg ">{course.shortDescription}</p>
           <p className="text-gray-700 mt-2 text-[1em] border-b-2 border-gray-100 pb-4">{course.description}</p>
 
-          {/* Customer Rating */}
           <div className="flex items-center my-2">
             <span className="text-yellow-500 text-2xl">
-              {/* Render full stars */}
               {"★".repeat(fullStars)}
-              {/* Render half star if applicable */}
-              {halfStar && "★"}
-              {/* Render empty stars */}
+
               {"☆".repeat(emptyStars)}
             </span>
             <span className="text-gray-500 text-lg ml-2">{course.rating}</span>
           </div>
 
           <div className="flex my-4">
-            <button className="border-2 text-gray-700 px-4 py-2 rounded-md transition-colors duration-300 hover:shadow-md">
-              View course
+            <button onClick={() => router.push(course.path)} className="border-2 text-gray-700 px-4 py-2 rounded-md transition-colors duration-300 hover:shadow-md">
+              View Course
             </button>
             <button className="hover:shadow-xl bg-gray-900 ml-4 text-white px-4 py-2 rounded-md transition-colors duration-300">
               Contact Us
@@ -115,7 +115,6 @@ const ExploreCourses = () => {
           Explore Our Courses
         </h1>
         <div className="mb-8">
-          {/* Desktop and Tablet View: Horizontal Buttons */}
           <div className="hidden sm:flex justify-center space-x-4">
             {["bestSelling", "otherCourses", "freeCourses"].map((tab) => (
               <button
@@ -136,7 +135,6 @@ const ExploreCourses = () => {
             ))}
           </div>
 
-          {/* Mobile View: Dropdown Menu */}
           <div className="sm:hidden px-4">
             <select
               className="w-full px-4 py-3 border border-gray-300 rounded-full text-black bg-white focus:outline-none focus:ring-2 focus:ring-black"
@@ -191,7 +189,9 @@ const ExploreCourses = () => {
           )}
         </div>
       </div>
+      
     </div>
+    
   );
 };
 
