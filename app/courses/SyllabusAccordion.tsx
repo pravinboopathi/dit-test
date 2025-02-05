@@ -7,14 +7,8 @@ interface TopicDetail {
   details: string[];
 }
 
-interface Phase {
-  phase: string;
-  topics: TopicDetail[];
-}
-
 const SyllabusAccordion: React.FC<{ courseId: number }> = ({ courseId }) => {
   const course = courseData.find((course) => course.id === courseId);
-
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const toggleSection = (index: number) => {
@@ -30,7 +24,7 @@ const SyllabusAccordion: React.FC<{ courseId: number }> = ({ courseId }) => {
       <div className="mx-auto">
         <h2 className="font-normal text-4xl md:text-5xl mb-8">Topics You Will Learn</h2>
         <div className="space-y-6">
-          {course.syllabus.map((phase, index) => (
+          {course.syllabus.map((phase: { phase: string; topics: TopicDetail[] }, index: number) => (
             <div key={index} className="border border-gray-300 rounded-lg shadow-md overflow-hidden">
               <div
                 className="flex justify-between items-center bg-gray-50 hover:bg-gray-100 px-6 py-4 cursor-pointer transition duration-300"
