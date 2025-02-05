@@ -41,16 +41,11 @@ interface FAQComponentProps {
 const FAQ: React.FC<FAQComponentProps> = ({ courseId }) => {
   // Convert courseId to number if it's a string
   const numericCourseId = typeof courseId === 'string' ? parseInt(courseId, 10) : courseId;
-  
+
   // Find the course with proper type checking
   const course = (courseData as Course[]).find((course) => course.id === numericCourseId);
-  
-  // Handle the case when the course is not found
-  if (!course) {
-    return <div>Course not found</div>;
-  }
 
-  const faqs = course.faqs || [];
+  const faqs = course?.faqs || [];
 
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
@@ -68,6 +63,11 @@ const FAQ: React.FC<FAQComponentProps> = ({ courseId }) => {
       toggleFAQ(index);
     }
   };
+
+  // Handle the case when the course is not found
+  if (!course) {
+    return <div>Course not found</div>;
+  }
 
   return (
     <div id="faq" className="bg-[#f6f7f8]">

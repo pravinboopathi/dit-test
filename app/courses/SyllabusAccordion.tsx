@@ -12,14 +12,8 @@ interface Phase {
   topics: TopicDetail[];
 }
 
-interface Course {
-  id: number;
-  syllabus: Phase[];
-}
-
 const SyllabusAccordion: React.FC<{ courseId: number }> = ({ courseId }) => {
   const course = courseData.find((course) => course.id === courseId);
-  if (!course) return <div className="text-left text-gray-600 text-lg">Course not found</div>;
 
   const [openIndex, setOpenIndex] = useState<number | null>(null);
 
@@ -27,8 +21,12 @@ const SyllabusAccordion: React.FC<{ courseId: number }> = ({ courseId }) => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
+  if (!course) {
+    return <div className="text-left text-gray-600 text-lg">Course not found</div>;
+  }
+
   return (
-    <div id="syllabus" className="bg-white text-black py-12  lg:px-40 text-left">
+    <div id="syllabus" className="bg-white text-black py-12 lg:px-40 text-left">
       <div className="mx-auto">
         <h2 className="font-normal text-4xl md:text-5xl mb-8">Topics You Will Learn</h2>
         <div className="space-y-6">
