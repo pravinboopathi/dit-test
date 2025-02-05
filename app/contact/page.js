@@ -68,8 +68,8 @@ const ContactServices = ({ bgColor }) => {
   };
 
   return (
-    <div className={`container mx-auto py-12 lg:py-10 px-6   md:px-6 lg:px-40 ${bgColor}`}>
-      <h2 className="text-4xl font-semibold text-gray-800 mb-4 text-center">Let's Talk</h2>
+    <div className={`container mx-auto py-12 lg:py-10 px-6 md:px-6 lg:px-40 ${bgColor}`}>
+      <h2 className="text-4xl font-semibold text-gray-800 mb-4 text-center">Let&apos;s Talk</h2>
       <p className="text-center text-xl pt-1 pb-6">Fill out the form or write to us at: <span className="border-b-2 border-gray-800 border-dotted">contact@cybermindworks.com.</span></p>
       <motion.div
         className="bg-white p-6 rounded-xl border-2 border-gray-200 max-w-xl shadow-xl mx-auto"

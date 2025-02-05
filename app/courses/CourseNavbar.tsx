@@ -1,17 +1,12 @@
 "use client";
 
 import React, { useEffect, useRef, useState } from "react";
-import { Link as ScrollLink, LinkProps } from 'react-scroll';
+import { Link as ScrollLink } from 'react-scroll';
 
 // Define interfaces for type safety
 interface Section {
   id: string;
   name: string;
-}
-
-// Extend ScrollLink props
-interface ScrollLinkProps extends LinkProps {
-  'data-section'?: string;
 }
 
 const CourseNavbar: React.FC = () => {
@@ -51,7 +46,7 @@ const CourseNavbar: React.FC = () => {
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [activeSection]);
+  }, [activeSection, sections]);
 
   useEffect(() => {
     if (activeSection && navRef.current) {
@@ -70,8 +65,7 @@ const CourseNavbar: React.FC = () => {
   }, [activeSection]);
 
   return (
-<div className="w-full shadow-sm sticky top-0 bg-white z-50 border-b-2 border-gray-100 border-t-2 text-md">
-
+    <div className="w-full shadow-sm sticky top-0 bg-white z-50 border-b-2 border-gray-100 border-t-2 text-md">
       <nav 
         ref={navRef} 
         className="w-full px-5 md:px-32 overflow-x-auto scrollbar-hide"
