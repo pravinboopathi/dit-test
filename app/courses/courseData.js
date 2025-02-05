@@ -1,3 +1,17 @@
+import awsLogo from './aws.webp';
+import bootstrapLogo from './bootstrap.webp';
+import cssLogo from './css.webp';
+import expressLogo from './express.webp';
+import htmlLogo from './html.webp';
+import jsLogo from './js.webp';
+import mongodbLogo from './mongodb.webp';
+import mongooseLogo from './mongoose.webp';
+import mysqlLogo from './mysql.webp';
+import nodeLogo from './node.webp';
+import postmanLogo from './postman.webp';
+import reactLogo from './react.webp';
+import tailwindLogo from './tailwind.webp';
+import vscodeLogo from './vscode.webp';
 const courseData = [
     {
         id: 1,
@@ -121,22 +135,23 @@ const courseData = [
                 ]
             }
         ],
-        tools: [ // Add tools data here
-            { name: "AWS", logo: require('./aws.webp') },
-            { name: "Bootstrap", logo: require('./bootstrap.webp') },
-            { name: "CSS", logo: require('./css.webp') },
-            { name: "Express JS", logo: require('./express.webp') },
-            { name: "HTML", logo: require('./html.webp') },
-            { name: "JavaScript", logo: require('./js.webp') },
-            { name: "MongoDB", logo: require('./mongodb.webp') },
-            { name: "Mongoose", logo: require('./mongoose.webp') },
-            { name: "MySQL", logo: require('./mysql.webp') },
-            { name: "Node JS", logo: require('./node.webp') },
-            { name: "Postman", logo: require('./postman.webp') },
-            { name: "React", logo: require('./react.webp') },
-            { name: "Tailwind", logo: require('./tailwind.webp') },
-            { name: "VS Code", logo: require('./vscode.webp') },
-        ],
+        // Add tools data here
+            tools: [
+                { name: "AWS", logo: awsLogo },
+                { name: "Bootstrap", logo: bootstrapLogo },
+                { name: "CSS", logo: cssLogo },
+                { name: "Express JS", logo: expressLogo },
+                { name: "HTML", logo: htmlLogo },
+                { name: "JavaScript", logo: jsLogo },
+                { name: "MongoDB", logo: mongodbLogo },
+                { name: "Mongoose", logo: mongooseLogo },
+                { name: "MySQL", logo: mysqlLogo },
+                { name: "Node JS", logo: nodeLogo },
+                { name: "Postman", logo: postmanLogo },
+                { name: "React", logo: reactLogo },
+                { name: "Tailwind", logo: tailwindLogo },
+                { name: "VS Code", logo: vscodeLogo },
+              ],
         faqs: [ // Add FAQ data here
             {
                 question: "Is it 100% online learning or should I come in person for any specific course?",
