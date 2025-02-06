@@ -36,25 +36,9 @@ const Navbar: React.FC = () => {
               onClick={() => setIsServiceDropdownOpen(!isServiceDropdownOpen)}
             >
               <button className="text-gray-800 flex items-center focus:outline-none">
-                Service
-                <ChevronDown className="ml-1 text-pink-500 w-5 h-5 transition-transform duration-300 ease-in-out group-hover:rotate-180" />
+                <a href="/service">Service</a>
               </button>
-              {/* Dropdown Menu */}
-              <div
-                className={`absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-lg ${
-                  isServiceDropdownOpen ? "block" : "hidden"
-                } lg:group-hover:block`}
-              >
-                <Link href="/services/web-service" className="block px-4 py-2 text-gray-800 hover:bg-blue-100">
-                  Web Development
-                </Link>
-                <Link href="/services/app-services" className="block px-4 py-2 text-gray-800 hover:bg-blue-100">
-                  App Development
-                </Link>
-                <Link href="/services/software-services" className="block px-4 py-2 text-gray-800 hover:bg-blue-100">
-                  Software Development
-                </Link>
-              </div>
+              
             </div>
 
             {/* Product Dropdown */}
@@ -111,27 +95,7 @@ const Navbar: React.FC = () => {
       {isOpen && (
         <div className="lg:hidden bg-white">
           <div className="flex flex-col items-start px-4 py-2">
-            {/* Service Dropdown (Mobile) */}
-            <div className="relative w-full">
-              <button
-                className="flex justify-between w-full text-gray-800 px-4 py-2"
-                onClick={() => setIsServiceDropdownOpen(!isServiceDropdownOpen)}
-              >
-                Service
-                <ChevronDown className={`w-5 h-5 ml-2 transition-transform ${isServiceDropdownOpen ? "rotate-180" : ""}`} />
-              </button>
-              <div className={`${isServiceDropdownOpen ? "block" : "hidden"}`}>
-                <Link href="/services/web-service"className="block px-4 py-2 text-gray-800 hover:bg-blue-100">
-                  Web Development
-                </Link>
-                <Link href="/services/app-services"  className="block px-4 py-2 text-gray-800 hover:bg-blue-100">
-                  App Development
-                </Link>
-                <Link href="/services/software-services" className="block px-4 py-2 text-gray-800 hover:bg-blue-100">
-                  Software Development
-                </Link>
-              </div>
-            </div>
+            <Link href="/service" className="block px-4 py-2 text-gray-800 hover:bg-blue-100">Service</Link>
 
             {/* Product Dropdown (Mobile) */}
             <div className="relative w-full">
