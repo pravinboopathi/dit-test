@@ -5,11 +5,8 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion"; // Added AnimatePresence
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
-import DashboardImage from "./DashboardImage";
 
 const HeroSection: React.FC = () => {
-  const [selectedOption, setSelectedOption] = useState<string>("");
-  const [isLoading, setIsLoading] = useState(false);
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
 
   const words = ["AI Tools", "Solutions", "Automation", "Innovation"];
@@ -18,20 +15,9 @@ const HeroSection: React.FC = () => {
     const interval = setInterval(() => {
       setCurrentWordIndex((prev) => (prev + 1) % words.length);
     }, 2000);
-    return () => clearInterval(interval);
-  }, []);
 
-  const handleGoClick = () => {
-    if (selectedOption) {
-      setIsLoading(true);
-      setTimeout(() => {
-        alert(`You selected: ${selectedOption}`);
-        setIsLoading(false);
-      }, 1500);
-    } else {
-      alert("Please select an option before proceeding.");
-    }
-  };
+    return () => clearInterval(interval);
+  }, [words.length]); // Added words.length as a dependency
 
   return (
     <div className="relative bg-[#080808]">
@@ -62,25 +48,24 @@ const HeroSection: React.FC = () => {
           AI-powered SaaS platform. Our cutting-edge technology.
         </p>
 
-{/* Product Selector and Go Button */}
-<div className="flex flex-wrap justify-center gap-4 py-6">
-  {/* Get Started Button */}
-  <button
-  onClick={() => alert('Get Started clicked!')}
-  className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-400 px-4 py-2 text-base sm:text-lg flex items-center font-extralight transition-colors border-[#212020] border rounded-lg"
->
-  Get Started
-</button>
+        {/* Product Selector and Go Button */}
+        <div className="flex flex-wrap justify-center gap-4 py-6">
+          {/* Get Started Button */}
+          <button
+            onClick={() => alert("Get Started clicked!")}
+            className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-400 px-4 py-2 text-base sm:text-lg flex items-center font-extralight transition-colors border-[#212020] border rounded-lg"
+          >
+            Get Started
+          </button>
 
-
-  {/* View More Button */}
-  <button
-    onClick={() => alert('View More clicked!')}
-    className="font-extralight  border-[#212020] border text-gray-200 px-6 py-2 text-base sm:text-lg rounded-lg flex items-center transition-colors"
-  >
-    View More
-  </button>
-</div>
+          {/* View More Button */}
+          <button
+            onClick={() => alert("View More clicked!")}
+            className="font-extralight border-[#212020] border text-gray-200 px-6 py-2 text-base sm:text-lg rounded-lg flex items-center transition-colors"
+          >
+            View More
+          </button>
+        </div>
 
         {/* Features List */}
         <div className="flex flex-wrap justify-center gap-4 text-[#767676] text-sm sm:text-base mb-6">
@@ -111,7 +96,7 @@ const HeroSection: React.FC = () => {
         <Image
           alt="Floating 3D oval"
           height={70}
-           src="/images/sc.png"
+          src="/images/sc.png"
           width={70}
           className="absolute animate-rotate top-5 sm:top-10 right-10 sm:right-40"
         />
@@ -130,9 +115,7 @@ const HeroSection: React.FC = () => {
           className="absolute animate-float bottom-2 sm:bottom-5 right-10 sm:right-60"
         />
       </div>
-      
     </div>
-    
   );
 };
 

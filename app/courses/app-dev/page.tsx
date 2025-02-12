@@ -1,5 +1,3 @@
-"use client";
-
 import React from "react";
 import CourseForm from "../CourseForm";
 import Breadcrumb from "../Breadcrumb";
@@ -34,7 +32,7 @@ const Fullstack: React.FC = () => {
   if (!course) {
     return (
       <div className="text-center text-2xl font-semibold py-8">
-        Course not found - go to <Link href="/">Home Page</Link>
+        Course not found - go to <Link href="/">Home Page</Link> {/* Use Link here */}
       </div>
     );
   }

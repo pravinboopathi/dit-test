@@ -66,6 +66,9 @@ const ExploreCourses = () => {
             alt={course.alt}
             src={course.image}
             className='w-full h-56 object-cover rounded-lg'
+            width={400} // Added width and height for optimization
+            height={224} // Added width and height for optimization
+            priority // Optional: if you want to prioritize loading this image
           />
           <h2 className='text-xl font-medium text-gray-300 mt-4'>{course.title}</h2>
           <p className='text-gray-400 my-2 text-lg'>{course.shortDescription}</p>
@@ -103,34 +106,34 @@ const ExploreCourses = () => {
           Explore Our Courses
         </h1>
         <div className='mb-8 mt-10'>
-  <div className='hidden sm:flex justify-center space-x-4'>
-    {['bestSelling', 'otherCourses', 'freeCourses'].map((tab) => (
-      <button
-        key={tab}
-        className={`px-6 py-3 rounded-full font-extralight transition-all duration-300 transform ${
-          activeTab === tab
-            ? 'bg-clip-text text-transparent bg-gradient-to-r from-orange-400 to-red-400 shadow-lg scale-110 border border-[#1c1c1c]'
-            : 'bg-[#080808] text-[#d0d0d0] border-2  border-[#1c1c1c]'
-        }`}
-        onClick={() => setActiveTab(tab)}
-      >
-        {tab === 'bestSelling' ? 'Best Selling' : tab === 'otherCourses' ? 'Other Courses' : 'Free Courses'}
-      </button>
-    ))}
-  </div>
+          <div className='hidden sm:flex justify-center space-x-4'>
+            {['bestSelling', 'otherCourses', 'freeCourses'].map((tab) => (
+              <button
+                key={tab}
+                className={`px-6 py-3 rounded-full font-extralight transition-all duration-300 transform ${
+                  activeTab === tab
+                    ? 'bg-clip-text text-transparent bg-gradient-to-r from-orange-400 to-red-400 shadow-lg scale-110 border border-[#1c1c1c]'
+                    : 'bg-[#080808] text-[#d0d0d0] border-2  border-[#1c1c1c]'
+                }`}
+                onClick={() => setActiveTab(tab)}
+              >
+                {tab === 'bestSelling' ? 'Best Selling' : tab === 'otherCourses' ? 'Other Courses' : 'Free Courses'}
+              </button>
+            ))}
+          </div>
 
-  <div className='sm:hidden px-4'>
-    <select
-      className='w-full px-4 py-3 border border-gray-500 rounded-full text-gray-300 bg-[#08080] focus:outline-none focus:ring-2  focus:ring-gray-500'
-      value={activeTab}
-      onChange={(e) => setActiveTab(e.target.value)}
-    >
-      <option value='bestSelling'>Best Selling</option>
-      <option value='otherCourses'>Other Courses</option>
-      <option value='freeCourses'>Free Courses</option>
-    </select>
-  </div>
-</div>
+          <div className='sm:hidden px-4'>
+            <select
+              className='w-full px-4 py-3 border border-gray-500 rounded-full text-gray-300 bg-[#08080] focus:outline-none focus:ring-2  focus:ring-gray-500'
+              value={activeTab}
+              onChange={(e) => setActiveTab(e.target.value)}
+            >
+              <option value='bestSelling'>Best Selling</option>
+              <option value='otherCourses'>Other Courses</option>
+              <option value='freeCourses'>Free Courses</option>
+            </select>
+          </div>
+        </div>
 
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
           {activeTab === 'bestSelling' && renderCourses(bestSellingCourses)}
