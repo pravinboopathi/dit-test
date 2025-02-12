@@ -14,8 +14,8 @@ const TrustedBrands: React.FC = () => {
         // Mock data (simulates API response)
         const response = {
           data: [
-            { src: "/images/canva.png", alt: "Canva Logo" },
-            { src: "/images/canva.png", alt: "Adobe Logo" },
+            { src: "/images/gg.png", alt: "Canva Logo" },
+            { src: "/images/zoho.png", alt: "Adobe Logo" },
             { src: "/images/canva.png", alt: "Microsoft Logo" },
             { src: "/images/canva.png", alt: "Google Logo" },
             { src: "/images/canva.png", alt: "Apple Logo" },
@@ -34,12 +34,12 @@ const TrustedBrands: React.FC = () => {
   }, []);
 
   return (
-    <section className="bg-gray-100 py-16">
+    <section className="bg-[#080808] py-16">
       <div className="max-w-screen-full mx-auto text-center">
-        <h2 className="text-5xl font-medium mb-16 text-gray-800">Brands That Trust Us</h2>
+        <h2 className="text-5xl font-light mb-16 text-[#676767] ">Brands That Trust Us</h2>
         <div className="relative overflow-hidden">
           {isLoading ? (
-            <p className="text-gray-600">Loading logos...</p>
+            <p className="text-silver">Loading logos...</p>
           ) : (
             <Marquee speed={50} gradient={false} className="flex items-center">
               {/* Duplicate logos multiple times to ensure seamless scrolling */}
@@ -52,8 +52,8 @@ const TrustedBrands: React.FC = () => {
                   <Image
                     src={logo.src}
                     alt={logo.alt}
-                    width={60}
-                    height={60}
+                    width={80}
+                    height={80}
                     className="object-contain"
                   />
                 </div>
@@ -62,7 +62,6 @@ const TrustedBrands: React.FC = () => {
           )}
         </div>
       </div>
-
     </section>
   );
 };

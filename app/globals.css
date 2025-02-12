@@ -7,6 +7,7 @@
 body {
   font-family: 'Poppins', sans-serif;
   color: #343434;
+  background-color: #080808;
 }
 
 @keyframes float {

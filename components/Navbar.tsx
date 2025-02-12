@@ -1,125 +1,87 @@
 "use client";
-
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
-import { ChevronDown } from "lucide-react"; // Import Lucide icon
+import { ChevronDown } from "lucide-react";
 
 const Navbar: React.FC = () => {
-  const [isOpen, setIsOpen] = useState(false); // Mobile menu state
-  const [isServiceDropdownOpen, setIsServiceDropdownOpen] = useState(false); // Service dropdown state
-  const [isProductDropdownOpen, setIsProductDropdownOpen] = useState(false); // Product dropdown state
+  const [isOpen, setIsOpen] = useState(false);
+  const [isProductDropdownOpen, setIsProductDropdownOpen] = useState(false);
 
   return (
-    <nav className="bg-white sticky top-0 z-50 py-3 border-b">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
-          {/* Logo */}
-          <div className="flex-shrink-0 flex items-center font-light text-xl">
+    <nav className="bg-[#080808] sticky top-0 z-50 py-4 ">
+      <div className="max-w-[1800px] mx-auto px-6 flex justify-between items-center">
+        {/* Logo */}
+        <div className="flex-shrink-0 flex items-center font-light text-xl">
             <Link href="/" className="flex items-center">
               <Image
                 src="/images/divineinfotech.png"
                 alt="Logo"
-                width={60}
-                height={60}
+                width={55}
+                height={55}
                 className="cursor-pointer"
               />
-              <span className="ml-2 text-gray-800 font-normal">Divine Infotech</span>
+              <span className="ml-2 text-white font-light">Divine Infotech</span>
             </Link>
           </div>
 
-          {/* Desktop Links */}
-          <div className="hidden lg:flex flex-grow justify-end items-center space-x-6 text-lg font-normal mr-6">
-            {/* Service Dropdown */}
-            <div
-              className="relative group px-3 py-2 rounded-md cursor-pointer"
-              onClick={() => setIsServiceDropdownOpen(!isServiceDropdownOpen)}
-            >
-              <button className="text-gray-800 flex items-center focus:outline-none">
-                <a href="/service">Service</a>
-              </button>
-              
-            </div>
+        {/* Desktop Menu */}
+        <div className="hidden lg:flex items-center space-x-8 text-lg py-3 px-5 text-gray-300 font-light bg-[#0e0e0e] rounded-full ml-16 border border-[#212020]">
+          <Link href="/" className="hover:text-orange-400 transition">Home</Link>
+          <Link href="/about" className="hover:text-orange-400 transition">About</Link>
+          <Link href="/contact" className="hover:text-orange-400 transition">Contact</Link>
+          <Link href="/features" className="hover:text-orange-400 transition">Feature</Link>
 
-            {/* Product Dropdown */}
-            <div
-              className="relative group px-3 py-2 rounded-md cursor-pointer"
-              onClick={() => setIsProductDropdownOpen(!isProductDropdownOpen)}
-            >
-              <button className="text-gray-800 flex items-center focus:outline-none">
-                Product
-                <ChevronDown className="ml-1 text-pink-500 w-5 h-5 transition-transform duration-300 ease-in-out group-hover:rotate-180" />
-              </button>
-              {/* Dropdown Menu */}
-              <div
-                className={`absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-lg ${
-                  isProductDropdownOpen ? "block" : "hidden"
-                } lg:group-hover:block`}
-              >
-                <Link href="/products/billingpage" className="block px-4 py-2 text-gray-800 hover:bg-blue-100">
-                  Billing Software
-                </Link>
-                <Link href="/products/ai-model" className="block px-4 py-2 text-gray-800 hover:bg-blue-100">
-                  AI Model
-                </Link>
-              </div>
-            </div>
-
-            <Link href="/blog" className="text-gray-800 px-3 py-2">Blog</Link>
-            <Link href="/career" className="text-gray-800 px-3 py-2">Career</Link>
-
-          </div>
-
-          {/* Contact Button */}
-          <div className="hidden lg:flex items-center">
-            <Link href="/contact">
-              <button className="px-4 py-2 text-white text-lg bg-[#343434] rounded-xl">
-                Contact
-              </button>
-            </Link>
-          </div>
-
-          {/* Mobile Menu Button */}
-          <div className="lg:hidden">
+          {/* Product Dropdown */}
+          <div className="relative">
             <button
-              onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-800 focus:outline-none"
+              onClick={() => setIsProductDropdownOpen(!isProductDropdownOpen)}
+              className="flex items-center hover:text-orange-400 transition"
             >
-              {isOpen ? <span>&#10005;</span> : <span>&#9776;</span>}
+              Products <ChevronDown className="ml-1 w-5 h-5" />
             </button>
+            {isProductDropdownOpen && (
+              <div className="absolute left-0 mt-4 w-48 text-gray-300 border border-[#252525] shadow-lg rounded-lg py-2">
+                <Link href="/products/billingpage" className="block px-4 py-2 ">Billing Software</Link>
+                <Link href="/products/ai-model" className="block px-4 py-2 ">AI Model</Link>
+              </div>
+            )}
           </div>
+        </div>
+
+        {/* Buttons */}
+        <div className="hidden lg:flex space-x-4">
+  <Link href="/login">
+    <button className="px-6 py-2 border text-lg font-light border-[#212020] text-gray-300  rounded-full shadow-md hover:bg-gray-100 hover:scale-105 transition-all duration-300">
+      Login
+    </button>
+  </Link>
+  <Link href="/get-started">
+  <button className="px-6 py-2 text-lg border-[#212020] font-normal border bg-gradient-to-r from-orange-400 to-red-400 text-transparent bg-clip-text rounded-full shadow-lg hover:scale-105 hover:brightness-110 transition-all duration-300">
+  Get Started
+</button>
+
+  </Link>
+</div>
+
+
+        {/* Mobile Menu Button */}
+        <div className="lg:hidden">
+          <button onClick={() => setIsOpen(!isOpen)} className="text-white focus:outline-none">
+            {isOpen ? <span>&#10005;</span> : <span>&#9776;</span>}
+          </button>
         </div>
       </div>
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="lg:hidden bg-white">
-          <div className="flex flex-col items-start px-4 py-2">
-            <Link href="/service" className="block px-4 py-2 text-gray-800 hover:bg-blue-100">Service</Link>
-
-            {/* Product Dropdown (Mobile) */}
-            <div className="relative w-full">
-              <button
-                className="flex justify-between w-full text-gray-800 px-4 py-2"
-                onClick={() => setIsProductDropdownOpen(!isProductDropdownOpen)}
-              >
-                Product
-                <ChevronDown className={`w-5 h-5 ml-2 transition-transform ${isProductDropdownOpen ? "rotate-180" : ""}`} />
-              </button>
-              <div className={`${isProductDropdownOpen ? "block" : "hidden"}`}>
-                <Link href="/product/billing-software" className="block px-4 py-2 text-gray-800 hover:bg-blue-100">
-                  Billing Software
-                </Link>
-                <Link href="/product/ai-model" className="block px-4 py-2 text-gray-800 hover:bg-blue-100">
-                  AI Model
-                </Link>
-              </div>
-            </div>
-
-            <Link href="/blog" className="block px-4 py-2 text-gray-800 hover:bg-blue-100">Blog</Link>
-            <Link href="/career" className="block px-4 py-2 text-gray-800 hover:bg-blue-100">Career</Link>
-            <Link href="/contact" className="block px-4 py-2 text-gray-800 hover:bg-blue-100">Contact</Link>
-          </div>
+        <div className="lg:hidden bg-black text-white py-4 px-6 space-y-4">
+          <Link href="/" className="block hover:text-orange-400">Home</Link>
+          <Link href="/about" className="block hover:text-orange-400">About</Link>
+          <Link href="/contact" className="block hover:text-orange-400">Contact</Link>
+          <Link href="/features" className="block hover:text-orange-400">Feature</Link>
+          <Link href="/login" className="block hover:text-orange-400">Login</Link>
+          <Link href="/get-started" className="block hover:text-orange-400">Get Started</Link>
         </div>
       )}
     </nav>

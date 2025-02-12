@@ -1,5 +1,3 @@
-"use client";
-
 import React, { useState } from "react";
 
 interface CourseFormProps {
@@ -11,20 +9,18 @@ const CourseForm: React.FC<CourseFormProps> = ({ courseName, coursePrice }) => {
   const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const [phone, setPhone] = useState<string>("");
-  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
-  const [error, setError] = useState<string | null>(null); // Fix: Ensure error is used correctly
+  const [error, setError] = useState<string | null>(null);
   const [loading, setLoading] = useState<boolean>(false);
+  const [successMessage, setSuccessMessage] = useState<string | null>(null);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    // Validate fields
     if (!name || !email || !phone) {
       setError("All fields are required.");
       return;
     }
 
-    // Validate phone number (Indian 10-digit)
     const phoneRegex = /^[789]\d{9}$/;
     if (!phoneRegex.test(phone)) {
       setError("Please enter a valid 10-digit Indian phone number.");
@@ -51,7 +47,7 @@ const CourseForm: React.FC<CourseFormProps> = ({ courseName, coursePrice }) => {
       });
 
       if (response.ok) {
-        setIsModalOpen(true);
+        setSuccessMessage("Your enrollment was successful!");
         setName("");
         setEmail("");
         setPhone("");
@@ -120,6 +116,7 @@ const CourseForm: React.FC<CourseFormProps> = ({ courseName, coursePrice }) => {
         </div>
 
         {error && <p className="text-red-500">{error}</p>}
+        {successMessage && <p className="text-green-500">{successMessage}</p>}
 
         <button
           type="submit"

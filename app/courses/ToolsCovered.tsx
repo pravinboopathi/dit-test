@@ -9,11 +9,6 @@ interface Tool {
   logo: string;
 }
 
-interface Course {
-  id: number;
-  tools: Tool[];
-}
-
 interface ToolsCoveredProps {
   courseId: number;
 }
@@ -25,17 +20,6 @@ const ToolsCovered: React.FC<ToolsCoveredProps> = ({ courseId }) => {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const scrollAmount = 150;
-
-  const scrollToNext = () => {
-    if (scrollRef.current && tools.length > 0) {
-      const newIndex = (currentIndex + 1) % tools.length;
-      scrollRef.current.scrollTo({
-        left: scrollAmount * newIndex,
-        behavior: 'smooth',
-      });
-      setCurrentIndex(newIndex);
-    }
-  };
 
   const scrollToIndex = (index: number) => {
     if (scrollRef.current) {
@@ -75,7 +59,13 @@ const ToolsCovered: React.FC<ToolsCoveredProps> = ({ courseId }) => {
               courseId !== 1 ? 'rounded-lg shadow-md' : ''
             }`}
           >
-            <Image src={tool.logo} alt={tool.name} width={180} height={180} className={`mb-2 px-2 ${courseId !== 1 ? 'h-16' : ''}`} />
+            <Image
+              src={tool.logo}
+              alt={tool.name}
+              width={180}
+              height={180}
+              className={`mb-2 px-2 ${courseId !== 1 ? 'h-16' : ''}`}
+            />
             {courseId !== 1 && <p className="text-center px-2 text-xs">{tool.name}</p>}
           </div>
         ))}

@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-
 import CourseForm from "../CourseForm";
 import Breadcrumb from "../Breadcrumb";
 import AboutCourse from "../AboutCourse";

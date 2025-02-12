@@ -45,10 +45,10 @@ const worksData = [
 
 const Works = () => {
   return (
-    <div className="bg-white py-12 relative overflow-hidden">
+    <div className="bg-[#080808] py-12 relative overflow-hidden text-gray-300">
       <div className="text-center mb-12">
-        <h1 className="text-6xl font-normal text-black">Our Works.</h1>
-        <p className="text-gray-600 font-normal mt-2">
+        <h1 className="text-6xl font-normal text-gray-300">Our Works.</h1>
+        <p className="text-gray-400 font-normal mt-2">
           Explore our featured projects and platforms
         </p>
       </div>
@@ -56,7 +56,7 @@ const Works = () => {
       {/* Works Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mx-auto max-w-[1100px] px-4 relative">
         {worksData.map((work, index) => (
-          <div key={index} className="bg-white border-2 border-gray-100 rounded-lg overflow-hidden">
+          <div key={index} className="bg-[#101010] border-2 border-gray-400 rounded-lg overflow-hidden">
             {/* Image Section */}
             <div className="relative p-6 pb-2">
               <Image
@@ -64,27 +64,27 @@ const Works = () => {
                 alt={work.description}
                 width={500}
                 height={500}
-                className="w-full h-68 object-cover border-2 rounded-lg border-black-200"
+                className="w-full h-68 object-cover border-2 rounded-lg border-gray-700"
               />
             </div>
 
             {/* Content Section */}
             <div className="px-7 py-2 pb-4">
-              <h2 className="text-2xl pb-1 font-semibold text-gray-900 mb-2">{work.title}</h2>
+              <h2 className="text-2xl pb-1 font-semibold text-gray-300 mb-2">{work.title}</h2>
               <div className="flex flex-wrap gap-2 mb-4">
                 {work.tags.map((tag, tagIndex) => (
-                  <span key={tagIndex} className="text-gray-600 rounded-full px-3 py-1 text-sm border border-gray-200">
+                  <span key={tagIndex} className="text-gray-400 rounded-full px-3 py-1 text-sm border border-gray-600">
                     {tag}
                   </span>
                 ))}
               </div>
-              <p className="text-gray-700 mb-4">{work.description}</p>
+              <p className="text-gray-400 mb-4">{work.description}</p>
 
               <div className="flex">
-                <button className="hover:shadow-xl bg-gray-900 text-white px-4 py-2 rounded-md transition-colors duration-300">
+                <button className="hover:shadow-xl bg-gray-700 text-white px-4 py-2 rounded-md transition-colors duration-300">
                   Demo
                 </button>
-                <button className="border-2 text-gray-700 px-4 py-2 rounded-md transition-colors duration-300 hover:shadow-md ml-4">
+                <button className="border-2 text-gray-400 px-4 py-2 rounded-md transition-colors duration-300 hover:shadow-md ml-4">
                   View More
                 </button>
               </div>
@@ -93,25 +93,23 @@ const Works = () => {
         ))}
       </div>
 
-{/* Decorative Circles */}
-<div>
-  {/* Top-Right Circle */}
-  <div className="absolute top-[10%] right-[-180px]">
-    <Image src="/images/circle2.png" alt="Top Right Circle" width={296} height={296} />
-  </div>
+      {/* Decorative Circles */}
+      <div>
+        {/* Top-Right Circle */}
+        <div className="absolute top-[10%] right-[-180px]">
+          <Image src="/images/circle2.png" alt="Top Right Circle" width={336} height={336} />
+        </div>
 
-  {/* Bottom-Left Circle */}
-  <div className="absolute bottom-[40%] left-[-180px]">
-    <Image src="/images/circle2.png" alt="Bottom Left Circle" width={296} height={296} />
-  </div>
+        {/* Bottom-Left Circle */}
+        <div className="absolute bottom-[40%] left-[-180px]">
+          <Image src="/images/circle2.png" alt="Bottom Left Circle" width={336} height={336} />
+        </div>
 
-  {/* Bottom-Right Circle */}
-  <div className="absolute bottom-[-10%] right-[-120px]">
-    <Image src="/images/circle2.png" alt="Bottom Right Circle" width={296} height={296} />
-  </div>
-</div>
-
-
+        {/* Bottom-Right Circle */}
+        <div className="absolute bottom-[-8%] right-[-120px]">
+          <Image src="/images/circle2.png" alt="Bottom Right Circle" width={336} height={336} />
+        </div>
+      </div>
     </div>
   );
 };

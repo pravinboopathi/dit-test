@@ -1,5 +1,4 @@
 "use client";
-
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css"; // Import Swiper styles
@@ -17,8 +16,8 @@ const DashboardImage: React.FC = () => {
   ];
 
   return (
-    <div className="flex justify-center items-center px-4 sm:px-6 lg:px-8 my-10">
-      <div className="w-full max-w-[1100px]">
+    <div className="flex justify-center items-center px-2 sm:px-6 bg-[#080808] lg:px-8 my-10">
+      <div className="w-full max-w-[1000px]"> {/* Adjusted max width */}
         <Swiper
           modules={[Pagination, Autoplay, EffectFade]}
           effect="fade" // Enables fade transition
@@ -37,9 +36,9 @@ const DashboardImage: React.FC = () => {
                 src={image.src} // Ensure images are in the 'public/images' folder
                 alt={image.alt}
                 layout="responsive"
-                width={1100}
-                height={500}
-                className="object-cover w-full h-auto"
+                width={400} // Adjusted size
+                height={200} // Adjusted size
+                className="object-cover w-full h-auto border border-[#343434] p-2 rounded-2xl bg-[rgba(17,17,17,0.37)] backdrop-blur-[15px]"
               />
             </SwiperSlide>
           ))}
