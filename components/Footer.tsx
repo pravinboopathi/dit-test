@@ -2,13 +2,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebookF, faTwitter, faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
+import { IconDefinition } from "@fortawesome/fontawesome-svg-core";  // Add this import
 
 const Footer = () => {
   return (
     <footer className="bg-[#08080] text-[#9e9d9d] py-8 px-4 border-t-2 border-t-[#1c1c1c]">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center ">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center">
         {/* Logo & Description */}
-        <div className="mb-6 pb-10 md:mb-0 ">
+        <div className="mb-6 pb-10 md:mb-0">
           <div className="flex items-center mb-4">
             <Image
               src="/images/divineinfotech.png"
@@ -37,8 +38,8 @@ const Footer = () => {
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center">
           <p className="text-[#9e9d9d] text-sm">© {new Date().getFullYear()} Divine Infotech, Inc.</p>
 
-          <div className="flex space-x-4 mt-4 md:mt-0  ">
-            <FooterLink href="#" text="Terms"/>
+          <div className="flex space-x-4 mt-4 md:mt-0">
+            <FooterLink href="#" text="Terms" />
             <FooterLink href="#" text="Privacy" />
             <FooterLink href="#" text="Legal" />
 
@@ -69,13 +70,13 @@ const FooterColumn = ({ title, links }: { title: string; links: string[] }) => (
 
 // Reusable Footer Link Component
 const FooterLink = ({ href, text }: { href: string; text: string }) => (
-  <Link href={href} className="text-[#9e9d9d] text-sm ">
+  <Link href={href} className="text-[#9e9d9d] text-sm">
     {text}
   </Link>
 );
 
 // Reusable Social Icon Component
-const SocialIcon = ({ href, icon }: { href: string; icon: any }) => (
+const SocialIcon = ({ href, icon }: { href: string; icon: IconDefinition }) => ( // Updated here
   <Link href={href} className="text-gray-600 hover:text-gray-900">
     <FontAwesomeIcon icon={icon} className="text-lg" />
   </Link>
