@@ -13,6 +13,7 @@ import Faq from "../FAQ";
 import Benefits from "../Benefits";
 import SyllabusAccordion from "../SyllabusAccordion";
 import ToolsCovered from "../ToolsCovered";
+import Link from "next/link"; // Import Link from next/link
 
 interface Course {
   id: number;
@@ -33,7 +34,7 @@ const Fullstack: React.FC = () => {
   if (!course) {
     return (
       <div className="text-center text-2xl font-semibold py-8">
-        Course not found - go to <a href="/">Home Page</a>
+        Course not found - go to <Link href="/">Home Page</Link>
       </div>
     );
   }
@@ -46,16 +47,13 @@ const Fullstack: React.FC = () => {
 
   return (
     <div id="hero" className="flex flex-col relative">
-      <div
-
-        className=" px-6 py-12 lg:pt-16 lg:px-28 text-white relative "
-      >
+      <div className="px-6 py-12 lg:pt-16 lg:px-28 text-white relative">
         {/* Breadcrumb */}
         <Breadcrumb items={breadcrumbItems} marginX="md:mx-10" />
 
         <div className="flex flex-col lg:flex-row items-start justify-between">
           <div className="lg:w-3/4 w-full md:px-10 lg:pt-8">
-            <h1 className="text-xl lg:text-5xl font-normal   underline underline-offset-3 text-yellow-500 leading-tight mb-2 md:mb-4">
+            <h1 className="text-xl lg:text-5xl font-normal underline underline-offset-3 text-yellow-500 leading-tight mb-2 md:mb-4">
               {course.name}
             </h1>
             <p
@@ -86,15 +84,12 @@ const Fullstack: React.FC = () => {
 
       <div className="bg-white">
         <CourseNavbar />
-    
-        
 
         <div className='lg:w-3/4'>
-        <AboutCourse courseId="1" />
-        <SyllabusAccordion courseId={1} />
+          <AboutCourse courseId="1" />
+          <SyllabusAccordion courseId={1} />
           <ToolsCovered courseId={1} />
           <Benefits />
-
         </div>
         <CertificateSection />
         <Faq courseId="1" />

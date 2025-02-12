@@ -1,5 +1,5 @@
 'use client';
-
+import Image from "next/image";
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
@@ -62,7 +62,7 @@ const ExploreCourses = () => {
 
       return (
         <div key={index} className='bg-[#080808] rounded-3xl border-2 border-[#1c1c1c] p-6'>
-          <img
+          <Image
             alt={course.alt}
             src={course.image}
             className='w-full h-56 object-cover rounded-lg'
