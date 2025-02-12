@@ -1,3 +1,6 @@
+// Add "use client" directive at the top
+"use client";
+
 import React from "react";
 import CourseForm from "../CourseForm";
 import Breadcrumb from "../Breadcrumb";
