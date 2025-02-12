@@ -39,9 +39,9 @@ const WhyUs: React.FC = () => {
   ];
 
   return (
-    <div className="bg-[#080808] text-silver">
+    <div className="bg-[#080808] text-[#d0d0d0]">
       <div className="container mx-auto px-8 py-12">
-        <h2 className="text-5xl font-normal text-center mb-16 font-jua">Why Us?</h2>
+        <h2 className="text-5xl font-extralight text-center mb-16 ">Why Us?</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-10 justify-center pl-8 sm:pl-16 md:pl-28">
           {reasons.map((reason, index) => (
             <div key={index} className="flex items-start space-x-4">
@@ -50,8 +50,8 @@ const WhyUs: React.FC = () => {
                 className="text-pink-500 mt-5 text-[1.6em]"
               />
               <div>
-                <h3 className="text-[1.4em] text-gray-600 font-light py-3">{reason.title}</h3>
-                <p className="text-gray-400 font-medium text-[1.1em] max-w-[500px]">
+                <h3 className="text-[1.4em] text-[#878787] font-light py-3">{reason.title}</h3>
+                <p className=" font-extralight text-[1.1em] max-w-[500px]">
                   {reason.description}
                 </p>
               </div>

@@ -1,117 +1,52 @@
-"use client";
+import Image from "next/image";
+import Link from "next/link";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFacebookF, faTwitter, faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
 
-import React from 'react';
-import { FaFacebookSquare, FaLinkedin, FaInstagram } from 'react-icons/fa';
-
-const Footer: React.FC = () => {
-  const currentYear = new Date().getFullYear();
-
-  const socialLinks = [
-    { 
-      name: 'Facebook', 
-      icon: <FaFacebookSquare className="text-blackduration-300" />, 
-      href: '' 
-    },
-    { 
-      name: 'Instagram', 
-      icon: <FaInstagram className="text-black transform hover:scale-110 transition-transform duration-300" />, 
-      href: 'https://www.instagram.com/divine.infotech' 
-    },
-    { 
-      name: 'LinkedIn', 
-      icon: <FaLinkedin className="text-black transform hover:scale-110 transition-transform duration-300" />, 
-      href: 'https://www.linkedin.com/company/divineinfotech-edu/' 
-    },
-  ];
-
-  const usefulLinks = [
-    { name: 'About Us', href: '#about' },
-    { name: 'Courses', href: '/courses' },
-    { name: 'Services', href: '/services' },
-    { name: 'Contact Us', href: '/contact' },
-  ];
-
-  const otherResources = [
-    { name: 'Careers', href: '/careers' },
-    { name: 'Terms & Conditions', href: '/terms' },
-    { name: 'Privacy Policy', href: '/privacypolicy' },
-    { name: 'Refund Policy', href: '/refundpolicy' },
-  ];
-
-  // Determine the footer background color
-  const footerClass = "bg-gray-50 text-black";
-
-  // Determine <hr> color
-  const hrColor = 'border-gray-400';
-
-  // Determine footer link text color
-  const footLink = 'text-black';
-
+const Footer = () => {
   return (
-    <footer id='footer' className={`${footerClass} z-50 py-8 px-5 md:pt-20 md:px-20`}>
-      <div className="container mx-auto">
-        <div className="flex flex-wrap justify-between lg:justify-evenly">
-          <div className="w-full lg:w-4/12 px-4 mb-8 lg:mb-0">
-            <h4 className="md:text-3xl text-2xl font-semibold mb-4">Let&apos;s keep in touch!</h4>
-            <h5 className="md:text-lg text-sm mb-6">
-              Find us on any of these platforms, we respond 1-2 business days.
-            </h5>
-            <a href="mailto:divineinfotech.edu@gmail.com" className="font-medium hover:underline underline-offset-4 decoration-black hover:cursor-pointer transition-all">
-              Mail : divineinfotech.edu@gmail.com
-            </a>
-            <div className="flex mt-5 space-x-4">
-              {socialLinks.map((social, index) => (
-                <a
-                  key={index}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-gray-200 shadow-lg font-normal h-10 w-10 flex items-center justify-center rounded-full outline-none focus:outline-none transform hover:scale-110 transition-transform duration-300"
-                  aria-label={social.name}
-                >
-                  {social.icon}
-                </a>
-              ))}
-            </div>
+    <footer className="bg-[#08080] text-[#9e9d9d] py-8 px-4 border-t-2 border-t-[#1c1c1c]">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center ">
+        {/* Logo & Description */}
+        <div className="mb-6 pb-10 md:mb-0 ">
+          <div className="flex items-center mb-4">
+            <Image
+              src="/images/divineinfotech.png"
+              alt="Company logo"
+              width={55}
+              height={55}
+              className="w-16 h-16 mr-2"
+            />
+            <span className="text-xl font-normal text-[#d0d0d0]">Divine Infotech</span>
           </div>
-          <div className="flex lg:flex-nowrap flex-row justify-between w-full lg:w-auto px-5 gap-5 lg:gap-20">
-            <div className="w-full lg:w-auto mb-8 lg:mb-0">
-              <span className="block uppercase text-black text-sm font-semibold mb-2">Useful Links</span>
-              <ul className="list-none">
-                {usefulLinks.map((link, index) => (
-                  <li key={index} className='pt-2'>
-                    <a
-                      href={link.href}
-                      className={`${footLink} hover:text-gray-700 font-semibold block text-sm md:text-base underline-offset-4 transition-colors duration-300 hover:underline`}
-                    >
-                      {link.name}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="w-full lg:w-auto">
-              <span className="block uppercase text-black text-sm font-semibold mb-2">Other</span>
-              <ul className="list-none">
-                {otherResources.map((link, index) => (
-                  <li key={index} className='pt-2'>
-                    <a
-                      href={link.href}
-                      className={`${footLink} hover:text-gray-700 font-semibold block text-sm md:text-base underline-offset-4 transition-colors duration-300 hover:underline`}
-                    >
-                      {link.name}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
+          <p className="text-[#9e9d9d]">
+            Find a job you love and research the fastest-growing companies.
+          </p>
         </div>
-        <hr className={`my-8 ${hrColor}`} />
-        <div className="flex flex-wrap items-center justify-center md:justify-between">
-          <div className="w-full text-center">
-            <div className={`text-sm ${footLink} font-semibold py-1`}>
-              Copyright © {currentYear} Divine Infotech.
+
+        {/* Navigation Links */}
+        <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-8 mb-10">
+          <FooterColumn title="Product" links={["Remote Job", "Startup", "Investor & Board", "Company"]} />
+          <FooterColumn title="Features" links={["For Candidate", "For Company", "Society"]} />
+          <FooterColumn title="About Us" links={["Documentation", "Contact Us", "Career"]} />
+        </div>
+      </div>
+
+      {/* Bottom Section */}
+      <div className="border-t border-[#1c1c1c] mt-8 pt-4 text-[#9e9d9d]">
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row justify-between items-center">
+          <p className="text-[#9e9d9d] text-sm">© {new Date().getFullYear()} Divine Infotech, Inc.</p>
+
+          <div className="flex space-x-4 mt-4 md:mt-0  ">
+            <FooterLink href="#" text="Terms"/>
+            <FooterLink href="#" text="Privacy" />
+            <FooterLink href="#" text="Legal" />
+
+            {/* Social Links */}
+            <div className="flex space-x-4 ml-4">
+              <SocialIcon href="#" icon={faFacebookF} />
+              <SocialIcon href="#" icon={faTwitter} />
+              <SocialIcon href="#" icon={faLinkedinIn} />
             </div>
           </div>
         </div>
@@ -119,5 +54,31 @@ const Footer: React.FC = () => {
     </footer>
   );
 };
+
+// Reusable Footer Column Component
+const FooterColumn = ({ title, links }: { title: string; links: string[] }) => (
+  <div>
+    <h3 className="text-[#d0d0d0] font-semibold mb-2">{title}</h3>
+    <ul className="text-[#9e9d9d] space-y-1">
+      {links.map((link, index) => (
+        <li key={index}>{link}</li>
+      ))}
+    </ul>
+  </div>
+);
+
+// Reusable Footer Link Component
+const FooterLink = ({ href, text }: { href: string; text: string }) => (
+  <Link href={href} className="text-[#9e9d9d] text-sm ">
+    {text}
+  </Link>
+);
+
+// Reusable Social Icon Component
+const SocialIcon = ({ href, icon }: { href: string; icon: any }) => (
+  <Link href={href} className="text-gray-600 hover:text-gray-900">
+    <FontAwesomeIcon icon={icon} className="text-lg" />
+  </Link>
+);
 
 export default Footer;

@@ -1,93 +1,61 @@
-"use client";
-
-import Head from "next/head";
 import Image from "next/image";
-import { motion } from "framer-motion";
-import { FC } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAndroid } from "@fortawesome/free-brands-svg-icons"; // ✅ Correct import for Android icon
+import { faGlobe, faCode } from "@fortawesome/free-solid-svg-icons";
 
-type Service = {
-  title: string;
-  description: string;
-  technologies: string;
-  image: string;
-};
-
-const services: Service[] = [
-  {
-    title: "Web Development",
-    description:
-      "Delivering responsive and dynamic web development services using modern technologies to create engaging and efficient user experiences for all.",
-    technologies: "React | Next.js | TypeScript",
-    image: "/images/web (1).png",
-  },
-  {
-    title: "App Development",
-    description:
-      "Creating seamless and efficient mobile applications with intuitive user interfaces and robust performance for iOS and Android platforms.",
-    technologies: "Flutter | React Native",
-    image:"/images/app-development.png",
-  },
-  {
-    title: "Software Development",
-    description:
-      "Building robust, scalable, and efficient software solutions tailored to client needs, leveraging modern technologies and best practices.",
-    technologies: "JavaScript | Python | Java",
-    image: "/images/native.png",
-  },
-  
-];
-
-const ServiceCard: FC<{ service: Service }> = ({ service }) => {
+export default function Solutions() {
   return (
-    <motion.div
-      className="rounded-lg border-2 border-gray-100 p-6 bg-[#080808] "
-    >
-      <Image
-        src={service.image}
-        alt={`${service.title} icon`}
-        width={96}
-        height={96}
-        className="mx-auto mb-4 rounded-lg object-cover"
-        loading="lazy"
-      />
-      <h2 className="text-2xl font-semibold text-silver mb-4 text-center">
-        {service.title}
-      </h2>
-      <p className="text-lg font-semibold text-silver text-center mb-2">
-        {service.technologies}
-      </p>
-      <p className="text-silver text-center mb-6">{service.description}</p>
-      <button
-        className="text-silver border-2 border-gray-500 py-2 px-6 rounded-lg text-center justify-center flex mx-auto"
-        aria-label={`Read more about ${service.title}`}
-      >
-        Read More
-      </button>
-    </motion.div>
-  );
-};
+    <div className="max-w-[1400px] mx-auto p-6">
+     <p className="py-2 px-3 rounded-lg border-2 border-[#1c1c1c] inline-block mb-4 bg-clip-text text-transparent bg-gradient-to-r from-orange-400 to-red-400">
+  Services
+</p>
 
-const Services: FC = () => {
-  return (
-    <>
-      <Head>
-        <title>Our Services</title>
-        <meta name="description" content="Discover our range of services, including web development, app development, and UI/UX design." />
-      </Head>
-      <div className="bg-[#080808] text-silver font-roboto py-16">
-        <div className="container mx-auto px-6 lg:px-20">
-          <h1 className="text-5xl font-normal text-center mb-12 text-silver">
-            Our Services.
-          </h1>
-          <div className="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, index) => (
-              <ServiceCard key={index} service={service} />
-            ))}
-          </div>
-        </div>
+      <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-10">
+        <h1 className="text-6xl text-[#d0d0d0] font-extralight">Build a Solution <br />That's truly your own.</h1>
+        <p className="text-[#9e9d9d] text-lg max-w-xl mt-4 md:mt-0">
+          We provide top-notch services in app development, web development, and software development to help your business thrive in the digital era.
+        </p>
       </div>
-    </>
-  );
-};
+      <div className="flex flex-col md:flex-row items-start gap-12">
+        <div className="md:w-1/2">
+          <Image
+            src="/images/asw.png" // Replace with actual image path
+            alt="Illustration of app and web development services"
+            className="max-w-xl rounded-xl shadow-lg"
+            width={600}
+            height={400}
+          />
+        </div>
+        <div className="md:w-1/2 flex flex-col gap-6">
+  {/* App Development */}
+  <div className="flex items-center gap-4 p-5  rounded-lg shadow-sm hover:shadow-md transition">
+    <FontAwesomeIcon icon={faAndroid} className="text-green-600 text-4xl p-3" />
+    <div>
+      <h3 className="text-xl font-extralight pb-2 text-[#d0d0d0]">App Development</h3>
+      <p className="text-[#747373]">We create high-performing mobile applications tailored to your business needs, ensuring seamless user experiences.</p>
+    </div>
+  </div>
 
-export default Services;
+  {/* Web Development */}
+  <div className="flex items-center gap-4 p-5  shadow-sm hover:shadow-md transition">
+    <FontAwesomeIcon icon={faGlobe} className="text-purple-600 text-3xl p-3" />
+    <div>
+      <h3 className="text-xl font-extralight pb-2 text-[#d0d0d0]">Web Development</h3>
+      <p className="text-[#747373]">From simple websites to complex web applications, we build scalable and responsive web solutions for your business.</p>
+    </div>
+  </div>
+
+  {/* Software Development */}
+  <div className="flex items-center gap-4 p-5   rounded-lg shadow-sm hover:shadow-md transition">
+    <FontAwesomeIcon icon={faCode} className="text-blue-600 text-3xl p-3" />
+    <div>
+      <h3 className="text-xl  font-extralight pb-2 text-[#d0d0d0]">Software Development</h3>
+      <p className="text-[#747373]">We deliver robust and efficient software solutions tailored to streamline your business operations.</p>
+    </div>
+  </div>
+</div>
+
+      </div>
+    </div>
+  );
+}
