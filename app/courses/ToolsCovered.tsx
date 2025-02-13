@@ -2,11 +2,11 @@
 
 import React, { useRef, useEffect, useState } from "react";
 import Image from "next/image";
-import courseData from "./courseData"; // Import the course data
+import courseData from "./courseData";
 
 interface Tool {
   name: string;
-  logo: string;
+  logo: string; // ✅ Changed from StaticImageData to string
 }
 
 interface ToolsCoveredProps {
@@ -21,16 +21,16 @@ const ToolsCovered: React.FC<ToolsCoveredProps> = ({ courseId }) => {
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const scrollAmount = 150;
 
+  // Scroll to specific index
   const scrollToIndex = (index: number) => {
-    if (scrollRef.current) {
-      scrollRef.current.scrollTo({
-        left: scrollAmount * index,
-        behavior: "smooth",
-      });
-      setCurrentIndex(index);
-    }
+    scrollRef.current?.scrollTo({
+      left: scrollAmount * index,
+      behavior: "smooth",
+    });
+    setCurrentIndex(index);
   };
 
+  // Auto-scroll effect
   useEffect(() => {
     if (tools.length === 0) return;
 
@@ -51,6 +51,7 @@ const ToolsCovered: React.FC<ToolsCoveredProps> = ({ courseId }) => {
   return (
     <div className="bg-white lg:px-32 mx-auto px-4 py-8">
       <h2 className="text-3xl font-bold text-center mb-6">Tools Covered</h2>
+
       <div className="flex overflow-hidden space-x-4 pb-4" ref={scrollRef}>
         {tools.map((tool, index) => (
           <div
@@ -70,6 +71,7 @@ const ToolsCovered: React.FC<ToolsCoveredProps> = ({ courseId }) => {
           </div>
         ))}
       </div>
+
       {tools.length > 1 && (
         <div className="flex justify-center space-x-2 mt-4">
           {tools.slice(0, 4).map((_, index) => (

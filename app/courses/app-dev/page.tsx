@@ -89,7 +89,7 @@ const Fullstack: React.FC = () => {
         <div className='lg:w-3/4'>
           <AboutCourse courseId="1" />
           <SyllabusAccordion courseId={1} />
-          <ToolsCovered courseId={1} />
+         
           <Benefits />
         </div>
         <CertificateSection />
