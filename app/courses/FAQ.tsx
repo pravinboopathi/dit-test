@@ -16,7 +16,7 @@ interface Course {
 }
 
 interface FAQComponentProps {
-  courseId: number | string; // Can be a number or string (from URL params)
+  courseId: number | string;
 }
 
 const FAQ: React.FC<FAQComponentProps> = ({ courseId }) => {
@@ -25,7 +25,7 @@ const FAQ: React.FC<FAQComponentProps> = ({ courseId }) => {
   const faqs = course?.faqs || [];
 
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
-  const contentRefs = useRef<Map<number, HTMLDivElement | null>>(new Map());
+  const contentRefs = useRef<{ [key: number]: HTMLDivElement | null }>({}); // Fix: Use object instead of Map
 
   const toggleFAQ = (index: number): void => {
     setActiveIndex((prev) => (prev === index ? null : index));
@@ -36,6 +36,10 @@ const FAQ: React.FC<FAQComponentProps> = ({ courseId }) => {
       e.preventDefault();
       toggleFAQ(index);
     }
+  };
+
+  const setContentRef = (index: number, el: HTMLDivElement | null) => {
+    if (el) contentRefs.current[index] = el; // Fix: Store ref correctly
   };
 
   if (!course) {
@@ -68,7 +72,7 @@ const FAQ: React.FC<FAQComponentProps> = ({ courseId }) => {
               </button>
 
               <div
-                ref={(el) => contentRefs.current.set(index, el)}
+                ref={(el) => setContentRef(index, el)} // ✅ Fixed ref assignment
                 id={`faq-content-${index}`}
                 className={`transition-max-height duration-300 ease-in-out overflow-hidden ${
                   activeIndex === index ? "max-h-screen" : "max-h-0"
