@@ -21,7 +21,7 @@ interface SocialIconProps {
 
 const Footer = () => {
   return (
-    <footer className="bg-[#08080] text-[#9e9d9d] py-8 px-4 border-t-2 border-t-[#1c1c1c]">
+    <footer className="bg-[#080808] text-[#9e9d9d] py-8 px-4 border-t-2 border-t-[#1c1c1c]">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center">
         {/* Logo & Description */}
         <div className="mb-6 pb-10 md:mb-0">
@@ -42,7 +42,7 @@ const Footer = () => {
 
         {/* Navigation Links */}
         <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-8 mb-10">
-          {[
+          {[ 
             { title: "Product", links: ["Remote Job", "Startup", "Investor & Board", "Company"] },
             { title: "Features", links: ["For Candidate", "For Company", "Society"] },
             { title: "About Us", links: ["Documentation", "Contact Us", "Career"] },
@@ -58,8 +58,12 @@ const Footer = () => {
           <p className="text-[#9e9d9d] text-sm">© {new Date().getFullYear()} Divine Infotech, Inc.</p>
 
           <div className="flex space-x-4 mt-4 md:mt-0">
-            {["Terms", "Privacy", "Legal"].map((text, index) => (
-              <FooterLink key={index} href="#" text={text} />
+            {["Terms", "Privacy", "Refund Policy"].map((text, index) => (
+              <FooterLink 
+                key={index} 
+                href={text === "Terms" ? "/terms" : text === "Privacy" ? "/privacy" : "/refund"} 
+                text={text} 
+              />
             ))}
 
             {/* Social Links */}

@@ -48,11 +48,10 @@ const WhyUs: React.FC = () => {
               <FontAwesomeIcon
                 icon={faCheck}
                 className="text-pink-500 mt-5 text-[1.6em]"
-              />
-              <div>
+              /><div>
                 <h3 className="text-[1.4em] text-[#878787] font-light py-3">{reason.title}</h3>
                 <p className=" font-extralight text-[1.1em] max-w-[500px]">
-                  {reason.description}
+              {reason.description}
                 </p>
               </div>
             </div>
