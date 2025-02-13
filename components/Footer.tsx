@@ -2,7 +2,22 @@ import Image from "next/image";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebookF, faTwitter, faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
-import { IconDefinition } from "@fortawesome/fontawesome-svg-core";  // Add this import
+import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
+
+interface FooterColumnProps {
+  title: string;
+  links: string[];
+}
+
+interface FooterLinkProps {
+  href: string;
+  text: string;
+}
+
+interface SocialIconProps {
+  href: string;
+  icon: IconDefinition;
+}
 
 const Footer = () => {
   return (
@@ -27,9 +42,13 @@ const Footer = () => {
 
         {/* Navigation Links */}
         <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-8 mb-10">
-          <FooterColumn title="Product" links={["Remote Job", "Startup", "Investor & Board", "Company"]} />
-          <FooterColumn title="Features" links={["For Candidate", "For Company", "Society"]} />
-          <FooterColumn title="About Us" links={["Documentation", "Contact Us", "Career"]} />
+          {[
+            { title: "Product", links: ["Remote Job", "Startup", "Investor & Board", "Company"] },
+            { title: "Features", links: ["For Candidate", "For Company", "Society"] },
+            { title: "About Us", links: ["Documentation", "Contact Us", "Career"] },
+          ].map((column, index) => (
+            <FooterColumn key={index} title={column.title} links={column.links} />
+          ))}
         </div>
       </div>
 
@@ -39,15 +58,15 @@ const Footer = () => {
           <p className="text-[#9e9d9d] text-sm">© {new Date().getFullYear()} Divine Infotech, Inc.</p>
 
           <div className="flex space-x-4 mt-4 md:mt-0">
-            <FooterLink href="#" text="Terms" />
-            <FooterLink href="#" text="Privacy" />
-            <FooterLink href="#" text="Legal" />
+            {["Terms", "Privacy", "Legal"].map((text, index) => (
+              <FooterLink key={index} href="#" text={text} />
+            ))}
 
             {/* Social Links */}
             <div className="flex space-x-4 ml-4">
-              <SocialIcon href="#" icon={faFacebookF} />
-              <SocialIcon href="#" icon={faTwitter} />
-              <SocialIcon href="#" icon={faLinkedinIn} />
+              {[faFacebookF, faTwitter, faLinkedinIn].map((icon, index) => (
+                <SocialIcon key={index} href="#" icon={icon} />
+              ))}
             </div>
           </div>
         </div>
@@ -56,8 +75,7 @@ const Footer = () => {
   );
 };
 
-// Reusable Footer Column Component
-const FooterColumn = ({ title, links }: { title: string; links: string[] }) => (
+const FooterColumn: React.FC<FooterColumnProps> = ({ title, links }) => (
   <div>
     <h3 className="text-[#d0d0d0] font-semibold mb-2">{title}</h3>
     <ul className="text-[#9e9d9d] space-y-1">
@@ -68,15 +86,13 @@ const FooterColumn = ({ title, links }: { title: string; links: string[] }) => (
   </div>
 );
 
-// Reusable Footer Link Component
-const FooterLink = ({ href, text }: { href: string; text: string }) => (
+const FooterLink: React.FC<FooterLinkProps> = ({ href, text }) => (
   <Link href={href} className="text-[#9e9d9d] text-sm">
     {text}
   </Link>
 );
 
-// Reusable Social Icon Component
-const SocialIcon = ({ href, icon }: { href: string; icon: IconDefinition }) => ( // Updated here
+const SocialIcon: React.FC<SocialIconProps> = ({ href, icon }) => (
   <Link href={href} className="text-gray-600 hover:text-gray-900">
     <FontAwesomeIcon icon={icon} className="text-lg" />
   </Link>

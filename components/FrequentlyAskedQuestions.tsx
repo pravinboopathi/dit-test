@@ -22,7 +22,9 @@ export default function FAQ() {
     <div className="flex justify-center items-center pt-16 bg-[#080808] px-4">
       <div className="max-w-3xl w-full text-center">
         <h1 className="text-5xl font-extralight text-[#d0d0d0] mb-4">Frequently Asked Questions</h1>
-        <p className="text-gray-400 mb-8">Explore our FAQs to learn more about how our product works, what it offers, and how it can help you achieve your team&apos;s goals.</p>
+        <p className="text-gray-400 mb-8">
+          Explore our FAQs to learn more about how our product works, what it offers, and how it can help you achieve your team&apos;s goals.
+        </p>
 
         <div className="space-y-5">
           {faqs.map((faq, index) => (
