@@ -1,8 +1,8 @@
-'use client';
+"use client";
 
-import React, { useRef, useEffect, useState } from 'react';
-import Image from 'next/image';
-import courseData from './courseData'; // Import the course data
+import React, { useRef, useEffect, useState } from "react";
+import Image from "next/image";
+import courseData from "./courseData"; // Import the course data
 
 interface Tool {
   name: string;
@@ -15,7 +15,7 @@ interface ToolsCoveredProps {
 
 const ToolsCovered: React.FC<ToolsCoveredProps> = ({ courseId }) => {
   const course = courseData.find((course) => course.id === courseId);
-  const tools: Tool[] = course ? course.tools : [];
+  const tools: Tool[] = course?.tools ?? []; // ✅ Ensures tools is always an array
 
   const scrollRef = useRef<HTMLDivElement>(null);
   const [currentIndex, setCurrentIndex] = useState<number>(0);
@@ -25,7 +25,7 @@ const ToolsCovered: React.FC<ToolsCoveredProps> = ({ courseId }) => {
     if (scrollRef.current) {
       scrollRef.current.scrollTo({
         left: scrollAmount * index,
-        behavior: 'smooth',
+        behavior: "smooth",
       });
       setCurrentIndex(index);
     }
@@ -39,7 +39,7 @@ const ToolsCovered: React.FC<ToolsCoveredProps> = ({ courseId }) => {
         const newIndex = (prevIndex + 1) % tools.length;
         scrollRef.current?.scrollTo({
           left: scrollAmount * newIndex,
-          behavior: 'smooth',
+          behavior: "smooth",
         });
         return newIndex;
       });
@@ -56,7 +56,7 @@ const ToolsCovered: React.FC<ToolsCoveredProps> = ({ courseId }) => {
           <div
             key={index}
             className={`flex-shrink-0 h-24 md:h-40 w-32 flex flex-col items-center justify-center ${
-              courseId !== 1 ? 'rounded-lg shadow-md' : ''
+              courseId !== 1 ? "rounded-lg shadow-md" : ""
             }`}
           >
             <Image
@@ -64,7 +64,7 @@ const ToolsCovered: React.FC<ToolsCoveredProps> = ({ courseId }) => {
               alt={tool.name}
               width={180}
               height={180}
-              className={`mb-2 px-2 ${courseId !== 1 ? 'h-16' : ''}`}
+              className={`mb-2 px-2 ${courseId !== 1 ? "h-16" : ""}`}
             />
             {courseId !== 1 && <p className="text-center px-2 text-xs">{tool.name}</p>}
           </div>
@@ -75,7 +75,9 @@ const ToolsCovered: React.FC<ToolsCoveredProps> = ({ courseId }) => {
           {tools.slice(0, 4).map((_, index) => (
             <button
               key={index}
-              className={`w-3 h-3 rounded-full ${currentIndex === index ? 'bg-blue-600' : 'bg-gray-300'} hover:bg-gray-400 focus:outline-none`}
+              className={`w-3 h-3 rounded-full ${
+                currentIndex === index ? "bg-blue-600" : "bg-gray-300"
+              } hover:bg-gray-400 focus:outline-none`}
               onClick={() => scrollToIndex(index)}
             />
           ))}
