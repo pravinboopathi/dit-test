@@ -15,7 +15,7 @@ const TermsAndConditions: React.FC = () => {
           <h2 className="text-3xl font-extralight text-[#ffffff] mt-6 mb-2 underline-offset-2">General</h2>
           <ul className="list-disc ml-6">
             <li>These terms and conditions govern your use of our website and the services we offer, including courses in Full Stack Web Development, Mastering the MERN Stack, Android App Development Bootcamp, Fundamentals of Game Development, Advanced UI/UX Design Techniques, Data Analysis with Python, Full Stack Python Development, Advanced Java Programming, Fundamentals of C, C++, Python, and Java, Digital Marketing Essentials, Git and GitHub Essentials, Introduction to Prompt Engineering, Advanced Stock Trading Techniques, and Mastering Tally Prime with GST.</li>
-            <li>By using our services, you agree to these terms and conditions in full. If you disagree with any part of these terms and conditions, you must not use our website.&quot;</li>
+            <li>By using our services, you agree to these terms and conditions in full. If you disagree with any part of these terms and conditions, you must not use our website.</li>
           </ul>
 
           <h2 className="text-3xl font-extralight text-[#ffffff] mt-6 mb-2">User Data Protection</h2>
@@ -58,7 +58,7 @@ const TermsAndConditions: React.FC = () => {
 
           <h2 className="text-3xl font-extralight text-[#ffffff] mt-6 mb-2">Disclaimers</h2>
           <ul className="list-disc ml-6">
-            <li>Our website and services are provided on an "as is" and "as available" basis. We do not warrant that our website or services will be uninterrupted, error-free, or free from viruses or other harmful components.</li>
+            <li>Our website and services are provided on an &quot;as is&quot; and &quot;as available&quot; basis. We do not warrant that our website or services will be uninterrupted, error-free, or free from viruses or other harmful components.</li>
             <li>We are not responsible for any technical issues or disruptions that may affect your access to our website or services.</li>
             <li>We reserve the right to modify, suspend, or discontinue any part of our website or services at any time without prior notice.</li>
           </ul>
