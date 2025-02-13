@@ -3,11 +3,23 @@ import Image from "next/image";
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
+// Define the course structure
+interface Course {
+  title: string;
+  description: string;
+  shortDescription: string;
+  image: string;
+  alt: string;
+  rating: number;
+  path: string;
+}
+
 const ExploreCourses = () => {
   const [activeTab, setActiveTab] = useState('bestSelling');
   const router = useRouter();
 
-  const bestSellingCourses = [
+  // Data for best selling courses
+  const bestSellingCourses: Course[] = [
     {
       title: 'Become the Developer Companies Need',
       description:
@@ -40,7 +52,8 @@ const ExploreCourses = () => {
     },
   ];
 
-  const otherCourses = [
+  // Data for other courses
+  const otherCourses: Course[] = [
     {
       title: 'Digital Marketing Mastery',
       description:
@@ -53,9 +66,11 @@ const ExploreCourses = () => {
     },
   ];
 
-  const freeCourses = [];
+  // Empty array for free courses
+  const freeCourses: Course[] = [];
 
-  const renderCourses = (courses) => {
+  // Function to render courses
+  const renderCourses = (courses: Course[]) => {
     return courses.map((course, index) => {
       const fullStars = Math.floor(course.rating);
       const emptyStars = 5 - fullStars;
