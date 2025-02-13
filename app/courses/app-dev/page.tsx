@@ -13,7 +13,7 @@ import CourseNavbar from "../CourseNavbar";
 import Faq from "../FAQ";
 import Benefits from "../Benefits";
 import SyllabusAccordion from "../SyllabusAccordion";
-import ToolsCovered from "../ToolsCovered";
+
 import Link from "next/link"; // Import Link from next/link
 
 interface Course {
