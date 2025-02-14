@@ -14,7 +14,6 @@ const Counter = ({ value, suffix }: { value: number; suffix: string }) => {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
-    const start = 0;
     const end = value;
     const duration = 2000;
     const increment = end / (duration / 16); // 60 FPS
@@ -65,7 +64,7 @@ export default function StatsSection() {
           {/* Content */}
           <div className="relative z-10">
             <h2 className="text-4xl font-bold text-center mb-16">
-              Let's dive into our numbers
+              Let&apos;s dive into our numbers
             </h2>
             
             <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
