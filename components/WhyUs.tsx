@@ -86,7 +86,6 @@ const WhyUs: React.FC = () => {
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12"
         >
           {reasons.map((reason, index) => (
-<<<<<<< HEAD
             <motion.div
               key={index}
               variants={itemVariants}
@@ -111,17 +110,6 @@ const WhyUs: React.FC = () => {
                     </p>
                   </div>
                 </div>
-=======
-            <div key={index} className="flex items-start space-x-4">
-              <FontAwesomeIcon
-                icon={faCheck}
-                className="text-pink-500 mt-5 text-[1.6em]"
-              /><div>
-                <h3 className="text-[1.4em] text-[#878787] font-light py-3">{reason.title}</h3>
-                <p className=" font-extralight text-[1.1em] max-w-[500px]">
-              {reason.description}
-                </p>
->>>>>>> 91092faedc8b7c8eb707cf15a8f600c3669562fa
               </div>
             </motion.div>
           ))}
