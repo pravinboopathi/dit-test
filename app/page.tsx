@@ -9,6 +9,10 @@ import WhyUs from '@/components/WhyUs';
 import IdeaSection from '@/components/IdeaSection';
 import ExploreCourses from '@/components/ExploreCourses';
 import Services from '@/components/Services';
+import Testimonials from '@/components/Testimonials';
+import StatsSection from '@/components/stats';
+import TextFloat from '@/components/text-float';
+
 
 
 
@@ -25,7 +29,10 @@ const Home: NextPage = () => {
 
       <Services />
       <ExploreCourses />
+      <TextFloat/>
       <WhyUs />
+      <StatsSection/>
+      <Testimonials />
       <FrequentlyAskedQuestions />
       <IdeaSection />
       

@@ -3,6 +3,7 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
+import { motion } from "framer-motion";
 
 const WhyUs: React.FC = () => {
   const reasons = [
@@ -19,7 +20,7 @@ const WhyUs: React.FC = () => {
     {
       title: "100% money back guarantee",
       description:
-        "We won't charge you a penny if you are not satisfied with the output - never happened.",
+        "We won't charge you a penny if you are not satisfied with the output - never happened. T&C applied.",
     },
     {
       title: "Strictly defined SLAs",
@@ -38,26 +39,81 @@ const WhyUs: React.FC = () => {
     },
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.5
+      }
+    }
+  };
+
   return (
-    <div className="bg-[#080808] text-[#d0d0d0]">
-      <div className="container mx-auto px-8 py-12">
-        <h2 className="text-5xl font-extralight text-center mb-16 ">Why Us?</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-10 justify-center pl-8 sm:pl-16 md:pl-28">
+    <div className="bg-gradient-to-b from-[#0a0a0f] via-[#0d0c13] to-[#0a0a0f] relative overflow-hidden">
+      {/* Background subtle grid pattern */}
+      <div className="absolute inset-0 bg-[url('/grid.png')] opacity-5"></div>
+      
+      {/* Content */}
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-24 relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-20"
+        >
+          <h2 className="text-5xl font-bold bg-gradient-to-r from-white via-gray-200 to-gray-400 text-transparent bg-clip-text">
+            Why Choose Us?
+          </h2>
+        </motion.div>
+
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true }}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12"
+        >
           {reasons.map((reason, index) => (
-            <div key={index} className="flex items-start space-x-4">
-              <FontAwesomeIcon
-                icon={faCheck}
-                className="text-pink-500 mt-5 text-[1.6em]"
-              />
-              <div>
-                <h3 className="text-[1.4em] text-[#878787] font-light py-3">{reason.title}</h3>
-                <p className=" font-extralight text-[1.1em] max-w-[500px]">
-                  {reason.description}
-                </p>
+            <motion.div
+              key={index}
+              variants={itemVariants}
+              className="group relative"
+            >
+              <div className="bg-[#1a1a24] rounded-xl p-6 h-full transform transition-all duration-300 hover:scale-[1.02] hover:shadow-2xl hover:shadow-pink-500/10">
+                <div className="flex items-start space-x-4">
+                  <div className="flex-shrink-0">
+                    <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-pink-500 to-purple-600 flex items-center justify-center">
+                      <FontAwesomeIcon
+                        icon={faCheck}
+                        className="text-white text-lg"
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold text-white mb-3 bg-gradient-to-r from-white to-gray-300 bg-clip-text">
+                      {reason.title}
+                    </h3>
+                    <p className="text-gray-400 leading-relaxed">
+                      {reason.description}
+                    </p>
+                  </div>
+                </div>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </div>
   );

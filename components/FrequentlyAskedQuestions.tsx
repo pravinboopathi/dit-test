@@ -4,11 +4,11 @@ import { FaPlus, FaMinus } from "react-icons/fa";
 import { motion } from "framer-motion";
 
 const faqs = [
-  { question: "What is the Product, and how does it work?", answer: "Our product is a powerful tool designed to simplify your workflow and enhance productivity." },
-  { question: "Is my data secure with the Product?", answer: "Yes, we use top-tier encryption and security measures to protect your data." },
-  { question: "Can I integrate the Product with other tools I use?", answer: "Absolutely! Our product seamlessly integrates with a variety of third-party applications." },
-  { question: "Do you offer a free trial or demo?", answer: "Yes, we provide a free trial so you can experience our product before committing." },
-  { question: "What kind of support does the Product provide?", answer: "We offer 24/7 customer support to assist you with any issues or queries." },
+  { question: "What is Divine Infotech, and what does it do?", answer: "Divine Infotech is a pioneering career education startup specializing in developing innovative solutions in Web applications, Android applications, and Data Science projects. Our programs offer advanced training, hands-on practice, and expert guidance to help individuals and businesses grow." },
+  { question: "How can Divine Infotech technologies help my business?", answer: "We streamline your operations, enhance security, boost your online presence, and increase productivity, driving business growth." },
+  { question: "How experienced is the Divine Infotech technologies team?", answer: "Our team consists of certified experts with extensive experience in various IT domains, ensuring top-notch service delivery." },
+  { question: "What makes us different from other Service providers?", answer: "Our comprehensive offerings, experienced solutions, and commitment to excellence set us apart from other providers." },
+  { question: "What kind of support does Divine Infotech technologies provide?", answer: "We offer 24/7 premium support to ensure seamless integration and continuous assistance for all our services." },
 ];
 
 export default function FAQ() {
