@@ -56,7 +56,7 @@ const Navbar: React.FC = () => {
       Login
     </button>
   </Link>
-  <Link href="/get-started">
+  <Link href="/contact">
   <button className="px-6 py-2 text-lg border-[#212020] font-normal border bg-gradient-to-r from-orange-400 to-red-400 text-transparent bg-clip-text rounded-full shadow-lg hover:scale-105 hover:brightness-110 transition-all duration-300">
   Get Started
 </button>
