@@ -81,6 +81,7 @@ const Navbar: React.FC = () => {
         <div className="lg:hidden bg-black text-white py-4 px-6 space-y-4">
           <Link href="/" className="block hover:text-orange-400">Home</Link>
           <Link href="/about" className="block hover:text-orange-400">About</Link>
+          <Link href="/our-works" className="block hover:text-orange-400">Our Works</Link>
           <Link href="/contact" className="block hover:text-orange-400">Contact</Link>
           <Link href="/features" className="block hover:text-orange-400">Feature</Link>
           <Link href="/login" className="block hover:text-orange-400">Login</Link>
