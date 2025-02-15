@@ -150,7 +150,7 @@ const OurWorks = () => {
         </div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Breadcrumb moved here */}
+          {/* Breadcrumb */}
           <div className="pt-8 sm:pt-10">
             <Breadcrumb 
               items={[
