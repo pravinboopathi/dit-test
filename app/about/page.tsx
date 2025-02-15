@@ -2,17 +2,11 @@
 import Image from 'next/image';
 import React from 'react';
 import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
 
 // Animation variants
 const fadeInUp = {
   hidden: { opacity: 0, y: 20 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
-};
-
-const fadeIn = {
-  hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { duration: 0.5 } }
 };
 
 const staggerChildren = {
@@ -450,7 +444,7 @@ const About: React.FC = () => {
                   </div>
                   
                   <motion.h2 variants={fadeInUp} className="text-3xl md:text-6xl font-bold mb-6 max-w-3xl">
-                    Let's Build Something{" "}
+                    Let&apos;s Build Something{" "}
                     <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-orange-400 text-transparent bg-clip-text">
                       Extraordinary
                     </span>
@@ -458,8 +452,8 @@ const About: React.FC = () => {
                   </motion.h2>
                   
                   <p className="text-md md:text-xl text-gray-400 mb-12 max-w-2xl">
-                    From concept to creation, we're here to help you achieve your digital goals. 
-                    Let's start a conversation about your next big project.
+                    From concept to creation, we&apos;re here to help you achieve your digital goals. 
+                    Let&apos;s start a conversation about your next big project.
                   </p>
 
                   {/* CTA Buttons */}
