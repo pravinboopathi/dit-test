@@ -8,6 +8,8 @@ const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isProductDropdownOpen, setIsProductDropdownOpen] = useState(false);
 
+
+
   return (
     <nav className="bg-[#080808] sticky top-0 z-50 py-4 ">
       <div className="max-w-[1800px] mx-auto px-6 flex justify-between items-center">
@@ -29,6 +31,7 @@ const Navbar: React.FC = () => {
         <div className="hidden lg:flex items-center space-x-8 text-lg py-3 px-5 text-gray-300 font-light bg-[#0e0e0e] rounded-full ml-16 border border-[#212020]">
           <Link href="/" className="hover:text-orange-400 transition">Home</Link>
           <Link href="/about" className="hover:text-orange-400 transition">About</Link>
+          <Link href="/our-works" className="hover:text-orange-400 transition">Our Works</Link>
           <Link href="/contact" className="hover:text-orange-400 transition">Contact</Link>
           <Link href="/features" className="hover:text-orange-400 transition">Feature</Link>
 

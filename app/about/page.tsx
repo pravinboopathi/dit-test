@@ -21,25 +21,30 @@ const staggerChildren = {
 const About: React.FC = () => {
   return (
     <div className="bg-[#080808] text-white min-h-screen">
+       
       <main className="relative">
         {/* Hero Section - With Fade Bottom */}
         <motion.div
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, margin: "-100px" }}
+          viewport={{ once: true }}
           variants={staggerChildren}
           className="text-center relative py-20"
         >
-          <div className="absolute inset-0 bg-gradient-to-b from-purple-500/10 via-transparent to-transparent blur-3xl -z-10" />
-          {/* Add fade to bottom */}
-          <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#080808] to-transparent" />
+          {/* New dotted gradient background */}
+          <div className="absolute inset-0">
+            <div className="absolute inset-0 bg-[linear-gradient(to_right,#4f4f4f2e_1px,transparent_1px),linear-gradient(to_bottom,#4f4f4f2e_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)]" />
+            <div className="absolute inset-0 bg-gradient-to-b from-[#080808]/80 via-[#080808]/95 to-[#080808]" />
+          </div>
           
-          <motion.h2 variants={fadeInUp} className="text-xl text-purple-400 mb-6 uppercase tracking-wider font-medium">About Divine Infotech</motion.h2>
-          <div className="max-w-5xl mx-auto px-4">
+          <motion.h2 variants={fadeInUp} className="text-xl text-purple-400 mb-6 md:mt-20 uppercase tracking-wider font-medium relative z-10">
+            About Divine Infotech
+          </motion.h2>
+          <div className="max-w-5xl mx-auto px-4 relative z-10">
             <motion.h1 variants={fadeInUp} className="text-5xl md:text-7xl font-bold mb-8 leading-tight">
               <span className="text-white block">We build</span>
               <span className="text-white">simple</span>{" "}
-              <span className="bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 text-transparent bg-clip-text">
+              <span className="bg-gradient-to-r from-purple-400 via-pink-400 to-orange-400 text-transparent bg-clip-text">
                 Digital Solutions
               </span>
             </motion.h1>
@@ -51,11 +56,36 @@ const About: React.FC = () => {
         </motion.div>
 
         {/* Services Section - Added bottom fade */}
-        <section className="py-20 bg-gradient-to-b from-[#080808] to-[#121212] relative">
-          <div className="container mx-auto px-4 md:px-8">
+        <section className="py-20 relative">
+          {/* New dotted gradient background */}
+          <div className="absolute inset-0">
+            {/* Dark theme dotted grid */}
+            <div className="absolute inset-0 bg-[linear-gradient(to_right,#ffffff0a_1px,transparent_1px),linear-gradient(to_bottom,#ffffff0a_1px,transparent_1px)] bg-[size:14px_24px] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_0%,#000_70%,transparent_110%)]" />
+            
+            {/* Gradient overlay for better text readability */}
+            <div className="absolute inset-0 bg-gradient-to-b from-[#080808]/90 via-[#080808]/95 to-[#080808]" />
+          </div>
+
+          <div className="container mx-auto px-4 md:px-8 relative z-10">
             <div className="text-center max-w-3xl mx-auto mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Services</h2>
-              <p className="text-gray-400">Comprehensive solutions for modern businesses</p>
+              <motion.h2 
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={fadeInUp}
+                className="text-3xl md:text-4xl font-bold mb-4"
+              >
+                Our Services
+              </motion.h2>
+              <motion.p 
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true }}
+                variants={fadeInUp}
+                className="text-gray-400"
+              >
+                Comprehensive solutions for modern businesses
+              </motion.p>
             </div>
             <motion.div
               initial="hidden"
@@ -342,12 +372,12 @@ const About: React.FC = () => {
           
           <div className="container mx-auto px-4 relative">
             <div className="max-w-6xl mx-auto">
-              <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-purple-900/10 via-indigo-900/10 to-transparent p-5 md:p-12">
+              <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-purple-900/10 via-red-900/10 to-transparent p-5 md:p-12">
                 <div className="absolute inset-0 backdrop-blur-xl opacity-30" />
                 
                 <div className="relative z-10">
                   <div className="text-center mb-16">
-                    <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-purple-200 via-pink-200 to-orange-200 text-transparent bg-clip-text">
+                    <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-purple-400 via-red-400 to-purple-400 text-transparent bg-clip-text">
                       Our Impact in Numbers
                     </h2>
                     <p className="text-gray-400 text-lg max-w-2xl mx-auto">
@@ -374,10 +404,10 @@ const About: React.FC = () => {
                         variants={fadeInUp}
                         className="group relative"
                       >
-                        <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-pink-500/10 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300 opacity-50" />
+                        <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-red-500/10 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300 opacity-50" />
                         <div className="relative bg-[#0C0C0C] rounded-2xl p-6 text-center border border-purple-500/10 hover:border-purple-500/20 transition-all duration-300">
                           <div className="text-3xl mb-3">{stat.icon}</div>
-                          <div className="text-3xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 text-transparent bg-clip-text mb-2">
+                          <div className="text-3xl font-bold bg-gradient-to-r from-purple-400 to-red-400 text-transparent bg-clip-text mb-2">
                             {stat.number}
                           </div>
                           <p className="text-gray-400 text-sm md:text-base">{stat.label}</p>
@@ -389,9 +419,9 @@ const About: React.FC = () => {
                   {/* Additional Info Cards */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-16">
                     <div className="relative group">
-                      <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-pink-500/10 rounded-2xl blur-xl opacity-50" />
+                      <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-orange-500/5 to-purple-500/10 rounded-2xl blur-xl opacity-50" />
                       <div className="relative bg-[#0C0C0C] rounded-2xl p-8 border border-purple-500/10">
-                        <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-purple-100 to-pink-100 text-transparent bg-clip-text">
+                        <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-purple-100 via-orange-200 to-purple-100 text-transparent bg-clip-text">
                           Global Reach
                         </h3>
                         <p className="text-gray-400 text-sm md:text-base leading-relaxed">
@@ -400,9 +430,9 @@ const About: React.FC = () => {
                       </div>
                     </div>
                     <div className="relative group">
-                      <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-pink-500/10 rounded-2xl blur-xl opacity-50" />
+                      <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 via-orange-500/5 to-purple-500/10 rounded-2xl blur-xl opacity-50" />
                       <div className="relative bg-[#0C0C0C] rounded-2xl p-8 border border-purple-500/10">
-                        <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-purple-100 to-pink-100 text-transparent bg-clip-text">
+                        <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-purple-100 via-orange-200 to-purple-100 text-transparent bg-clip-text">
                           Industry Recognition
                         </h3>
                         <p className="text-gray-400 text-sm md:text-base leading-relaxed">
@@ -415,6 +445,7 @@ const About: React.FC = () => {
               </div>
             </div>
           </div>
+
 
           {/* Bottom fade for next section */}
           <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#080808] via-[#080808] to-transparent" />
