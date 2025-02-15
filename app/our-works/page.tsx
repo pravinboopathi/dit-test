@@ -1,21 +1,14 @@
 'use client';
 import React, { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import Link from 'next/link';
 
-import PageHeader from '@/components/common/PageHeader';
 import Breadcrumb from '@/components/common/Breadcrumb';
-
 import ProjectFilter from '@/components/works/ProjectFilter';
 import ProjectCard from '@/components/works/ProjectCard';
-
 import TechnologyStack from '@/components/works/TechnologyStack';
 import IndustryImpact from '@/components/works/IndustryImpact';
 import SuccessMetrics from '@/components/works/SuccessMetrics';
 import FinalPitch from '../components/works/FinalPitch';
-
-
-
 
 // Project data interface
 interface Project {
@@ -121,11 +114,6 @@ const projectsData: Project[] = [
   }
 ];
 
-const breadcrumbItems = [
-  { label: 'Home', href: '/' },
-  { label: 'Our Works', href: '/our-works' }
-];
-
 const OurWorks = () => {
   const [activeCategory, setActiveCategory] = useState('All');
   const [showAll, setShowAll] = useState(false);
@@ -138,7 +126,7 @@ const OurWorks = () => {
 
   const visibleProjects = useMemo(() => {
     if (showAll) return filteredProjects;
-    return filteredProjects.slice(0, 3); // Show only first 3 projects on mobile
+    return filteredProjects.slice(0, 3);
   }, [filteredProjects, showAll]);
 
   return (
@@ -207,7 +195,7 @@ const OurWorks = () => {
                     behavior: 'smooth'
                   });
                 }}
-                className="px-8 py-4  border border-gray-800 text-gray-200 rounded-lg hover:bg-gray-900 transition-all duration-300 hover:border-gray-700 group"
+                className="px-8 py-4 border border-gray-800 text-gray-200 rounded-lg hover:border-gray-500 transition-all duration-300 group"
               >
                 Explore Our Works 
                 <span className="inline-block ml-2 transform group-hover:translate-y-1 transition-transform">↓</span>
