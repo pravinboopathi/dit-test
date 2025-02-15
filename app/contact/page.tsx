@@ -81,7 +81,7 @@ const Contact = () => {
             ></textarea>
           </div>
 
-          <p className="text-[1em] mb-6 text-[#9e9d9d]">By clicking "Submit" you agree to the TOS & Privacy Policy.</p>
+          <p className="text-[1em] mb-6 text-[#9e9d9d]">By clicking &quot;Submit&quot; you agree to the TOS & Privacy Policy.</p>
           
           <button className="px-6 py-2 w-full text-lg border-[#212020] font-normal border-2 bg-gradient-to-r from-orange-400 to-red-400 text-transparent bg-clip-text rounded-xl">
            Submit
