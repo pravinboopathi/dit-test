@@ -12,9 +12,6 @@ import Testimonials from '@/components/Testimonials';
 import StatsSection from '@/components/stats';
 import TextFloat from '@/components/text-float';
 
-
-
-
 const Home: NextPage = () => {
   return (
     <>
@@ -25,7 +22,6 @@ const Home: NextPage = () => {
       <HeroSection />
       <DashboardImage />
       <TrustedBrands />
-
       <Services />
       <ExploreCourses />
       <TextFloat/>
@@ -34,8 +30,8 @@ const Home: NextPage = () => {
       <Testimonials />
       <FrequentlyAskedQuestions />
       <IdeaSection />
-      
     </>
   );
 };
+
 export default Home;

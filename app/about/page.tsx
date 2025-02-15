@@ -205,7 +205,7 @@ const About: React.FC = () => {
                           </div>
                         </div>
                         <div className="ml-8 pt-1">
-                          <h3 className="text-lg font-semibold mb-2 bg-gradient-to-r from-purple-400 to-pink-400 text-transparent bg-clip-text">
+                          <h3 className="text-lg font-semibold mb-2 bg-gradient-to-r from-purple-200 to-pink-200 text-transparent bg-clip-text">
                             {step.title}
                           </h3>
                           <p className="text-sm text-gray-400 leading-relaxed">
@@ -308,7 +308,7 @@ const About: React.FC = () => {
 
                       {/* Content */}
                       <div className="text-center">
-                        <h3 className="text-2xl font-bold mb-2 bg-gradient-to-r from-purple-400 to-pink-400 text-transparent bg-clip-text">
+                        <h3 className="text-2xl font-bold mb-2 bg-gradient-to-r from-purple-200 to-pink-200 text-transparent bg-clip-text">
                           {member.name}
                         </h3>
                         <p className="text-gray-400 mb-4">{member.role}</p>
@@ -347,7 +347,7 @@ const About: React.FC = () => {
                 
                 <div className="relative z-10">
                   <div className="text-center mb-16">
-                    <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-purple-400 via-pink-400 to-orange-400 text-transparent bg-clip-text">
+                    <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-purple-200 via-pink-200 to-orange-200 text-transparent bg-clip-text">
                       Our Impact in Numbers
                     </h2>
                     <p className="text-gray-400 text-lg max-w-2xl mx-auto">
@@ -391,7 +391,7 @@ const About: React.FC = () => {
                     <div className="relative group">
                       <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-pink-500/10 rounded-2xl blur-xl opacity-50" />
                       <div className="relative bg-[#0C0C0C] rounded-2xl p-8 border border-purple-500/10">
-                        <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-pink-400 text-transparent bg-clip-text">
+                        <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-purple-100 to-pink-100 text-transparent bg-clip-text">
                           Global Reach
                         </h3>
                         <p className="text-gray-400 text-sm md:text-base leading-relaxed">
@@ -402,7 +402,7 @@ const About: React.FC = () => {
                     <div className="relative group">
                       <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-pink-500/10 rounded-2xl blur-xl opacity-50" />
                       <div className="relative bg-[#0C0C0C] rounded-2xl p-8 border border-purple-500/10">
-                        <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-purple-400 to-pink-400 text-transparent bg-clip-text">
+                        <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-purple-100 to-pink-100 text-transparent bg-clip-text">
                           Industry Recognition
                         </h3>
                         <p className="text-gray-400 text-sm md:text-base leading-relaxed">

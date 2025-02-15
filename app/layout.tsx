@@ -3,6 +3,7 @@ import { ReactNode } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { poppins } from './fonts';
+import ClientWrapper from '@/components/ClientWrapper';
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
@@ -14,6 +15,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <Navbar />
         {children} {/* This renders your app's content */}
         <Footer />
+        <ClientWrapper />
       </body>
     </html>
   );
