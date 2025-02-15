@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { FaUser, FaEnvelope, FaComment } from 'react-icons/fa';
+import Image from 'next/image';
 
 const Contact = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
@@ -24,10 +25,12 @@ const Contact = () => {
           You will get here what you exactly need!
         </p>
         <div className="flex items-center">
-          <img 
+          <Image 
             src="/images/tino.png" 
             alt="Portrait of Aarav Dev" 
-            className="w-16 h-16 rounded-full mr-4"
+            width={64}
+            height={64}
+            className="rounded-full mr-4"
           />
           <div>
             <p className="font-normal text-lg ">Tino Britty Jameskennady</p>
@@ -78,7 +81,7 @@ const Contact = () => {
             ></textarea>
           </div>
 
-          <p className="text-[1em] mb-6 text-[#9e9d9d]">By clicking “Submit” you agree to the TOS & Privacy Policy.</p>
+          <p className="text-[1em] mb-6 text-[#9e9d9d]">By clicking "Submit" you agree to the TOS & Privacy Policy.</p>
           
           <button className="px-6 py-2 w-full text-lg border-[#212020] font-normal border-2 bg-gradient-to-r from-orange-400 to-red-400 text-transparent bg-clip-text rounded-xl">
            Submit

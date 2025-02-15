@@ -116,7 +116,7 @@ const About: React.FC = () => {
 
                   {/* Content Container */}
                   <div className="w-full md:flex-1 relative">
-                    <div className="text-5xl text-orange-500/60 md:mb-4">"</div>
+                    <div className="text-5xl text-orange-500/60 md:mb-4">&quot;</div>
                     <blockquote className="relative">
                       <p className="text-lg md:text-2xl text-gray-200 text-justify md:text-start leading-relaxed mb-8">
                         We at Divine Infotech are committed to helping you streamline your operations,
