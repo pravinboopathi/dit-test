@@ -217,7 +217,7 @@ const OurWorks = () => {
            !hasProjects(activeCategory) && (
             <div className="text-center mt-8 text-gray-400">
               <p className="text-xl">Projects Coming Soon!</p>
-              <p className="mt-2">We're working on exciting new projects in this category.</p>
+              <p className="mt-2">We&apos;re working on exciting new projects in this category.</p>
             </div>
            )}
 
