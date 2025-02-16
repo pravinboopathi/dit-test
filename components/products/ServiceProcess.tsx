@@ -154,7 +154,11 @@ const QuantumOrbital = () => {
             {steps.map((_, i) => (
               <motion.path
                 key={i}
-                ref={(el: SVGPathElement | null) => pathsRef.current[i] = el ?? undefined}
+                ref={(el: SVGPathElement | null) => {
+                  if (el) {
+                    pathsRef.current[i] = el;
+                  }
+                }}
                 initial={{ pathLength: 0 }}
                 animate={{ pathLength: 1 }}
                 transition={{ duration: 1, delay: i * 0.2 }}
