@@ -2,13 +2,9 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
-import { ChevronDown } from "lucide-react";
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [isProductDropdownOpen, setIsProductDropdownOpen] = useState(false);
-
-
 
   return (
     <nav className="bg-[#080808] sticky top-0 z-50 py-4 ">
@@ -35,22 +31,6 @@ const Navbar: React.FC = () => {
           <Link href="/contact" className="hover:text-orange-400 transition">Contact</Link>
           <Link href="/features" className="hover:text-orange-400 transition">Feature</Link>
           <Link href="/products" className="hover:text-orange-400 transition">AI Solutions</Link>
-
-          {/* Product Dropdown */}
-          {/* <div className="relative">
-            <button
-              onClick={() => setIsProductDropdownOpen(!isProductDropdownOpen)}
-              className="flex items-center hover:text-orange-400 transition"
-            >
-              Products <ChevronDown className="ml-1 w-5 h-5" />
-            </button>
-            {isProductDropdownOpen && (
-              <div className="absolute left-0 mt-4 w-48 text-gray-300 border border-[#252525] shadow-lg rounded-lg py-2">
-                <Link href="/products/billingpage" className="block px-4 py-2 ">Billing Software</Link>
-                <Link href="/products/ai-model" className="block px-4 py-2 ">AI Model</Link>
-              </div>
-            )}
-          </div> */}
         </div>
 
         {/* Buttons */}
