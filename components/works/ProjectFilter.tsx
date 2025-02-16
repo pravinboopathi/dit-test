@@ -6,28 +6,30 @@ interface ProjectFilterProps {
   categories: string[];
   activeCategory: string;
   onCategoryChange: (category: string) => void;
+  hasProjects: (category: string) => boolean;
 }
 
 const ProjectFilter: React.FC<ProjectFilterProps> = ({
   categories,
   activeCategory,
   onCategoryChange,
+  hasProjects,
 }) => {
   return (
-    <div className="flex flex-wrap gap-4 justify-center">
+    <div className="flex flex-wrap gap-3 justify-center">
       {categories.map((category) => (
         <motion.button
           key={category}
           onClick={() => onCategoryChange(category)}
-          className={`px-6 py-3 rounded-lg text-sm font-medium transition-all duration-300 ${
+          className={`px-4 py-2 rounded-md text-sm font-medium transition-all duration-300 ${
             activeCategory === category
-              ? 'bg-gradient-to-r from-gray-200 via-gray-400 to-gray-600 text-gray-900 shadow-lg'
-              : 'bg-gray-800/50 text-gray-300 hover:bg-gray-700/50 border border-gray-700/50'
-          }`}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
+              ? 'bg-gray-100 text-gray-900'
+              : 'bg-transparent text-gray-400 hover:text-gray-200 border border-gray-800'
+          } ${!hasProjects(category) && category !== 'All' ? 'opacity-70' : ''}`}
+          whileHover={{ scale: 1.02 }}
+          whileTap={{ scale: 0.98 }}
         >
-          {category}
+          {category} 
         </motion.button>
       ))}
     </div>

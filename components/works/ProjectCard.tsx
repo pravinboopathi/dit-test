@@ -12,7 +12,6 @@ interface ProjectCardProps {
     image: string;
     description: string;
     liveUrl: string;
-    technologies: string[];
     metrics: {
       [key: string]: string;
     };
@@ -44,16 +43,16 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
         <p className="text-gray-400 mt-2 line-clamp-2">{project.description}</p>
         
         {/* Metrics */}
-        <div className="grid grid-cols-2 gap-4 mt-4 mb-4">
+        <div className="grid grid-cols-3 gap-2 text-sm mt-4 mb-4">
           {Object.entries(project.metrics).map(([key, value]) => (
             <div key={key} className="text-center">
               <p className="text-orange-400 font-semibold">{value}</p>
-              <p className="text-gray-500 text-sm">{key}</p>
+              <p className="text-gray-500 text-xs">{key}</p>
             </div>
           ))}
         </div>
 
-        <div className="flex flex-wrap gap-2 mt-4">
+        {/* <div className="flex flex-wrap gap-2 mt-4">
           {project.technologies.map((tech, index) => (
             <span 
               key={index}
@@ -62,7 +61,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project }) => {
               {tech}
             </span>
           ))}
-        </div>
+        </div> */}
 
         <Link 
           href={`/our-works/${project.liveUrl}`}

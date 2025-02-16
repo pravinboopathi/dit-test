@@ -18,13 +18,12 @@ interface Project {
   image: string;
   description: string;
   liveUrl: string;
-  technologies: string[];
   metrics: {
     [key: string]: string;
   };
 }
 
-const categories = ['All', 'Web Development', 'Mobile Apps', 'Cloud Solutions', 'AI Integration', 'UI/UX Design'];
+const categories = ['All','AI Integration', 'Web Development', 'Mobile Apps', 'Cloud Solutions', 'UI/UX Design'];
 
 // Enhanced projects data with more examples
 const projectsData: Project[] = [
@@ -34,7 +33,6 @@ const projectsData: Project[] = [
     category: 'Web Development',
     image: '/images/infinite.png',
     description: 'A platform offering a vast library of free PNG images for download, ensuring seamless integration into various projects.',
-    technologies: ['Next.js', 'Node.js', 'MongoDB'],
     liveUrl: 'https://infinitypng.com/',
     metrics: {
       'Downloads': '100K+',
@@ -48,7 +46,6 @@ const projectsData: Project[] = [
     category: 'Web Development',
     image: '/images/resumeBuilder.png',
     description: 'A user-friendly platform for creating and managing resumes across multiple devices.',
-    technologies: ['React Js', 'Firebase', 'Redux'],
     liveUrl: 'https://resumebuilder-react-js.netlify.app/',
     metrics: {
       'Resumes Created': '10K+',
@@ -62,7 +59,6 @@ const projectsData: Project[] = [
     category: 'Cloud Solutions',
     image: '/images/zen-ev.png',
     description: 'A comprehensive cloud-based platform for electric vehicle charging solutions.',
-    technologies: ['React.js', 'Tailwind CSS', 'EmailJs', 'Framer Motion'],
     liveUrl: 'https://zen-ev.netlify.app/',
     metrics: {
       'Charging Points': '500+',
@@ -76,7 +72,6 @@ const projectsData: Project[] = [
     category: 'AI Integration',
     image: '/images/ai.jpeg',
     description: 'Intelligent customer service automation with natural language processing.',
-    technologies: ['Python', 'TensorFlow', 'NLP', 'FastAPI'],
     liveUrl: 'https://ai-customer-service.netlify.app/',
     metrics: {
       'Query Resolution': '95%',
@@ -90,7 +85,6 @@ const projectsData: Project[] = [
     category: 'UI/UX Design',
     image: '/images/financial.jpg',
     description: 'Intuitive financial analytics dashboard with real-time data visualization.',
-    technologies: ['Figma', 'React', 'D3.js', 'Material-UI'],
     liveUrl: 'https://financial-dashboard-react-js.netlify.app/',
     metrics: {
       'Data Processing': '1M+/day',
@@ -104,7 +98,6 @@ const projectsData: Project[] = [
     category: 'Web Development',
     image: '/images/johil.png',
     description: 'A comprehensive catering management system with real-time order tracking and inventory management.',
-    technologies: ['React.js', 'Tailwind CSS', 'EmailJs', 'Framer Motion'],
     liveUrl: 'https://johil-caterings.netlify.app/',
     metrics: {
       'Orders Processed': '1000+',
@@ -113,6 +106,10 @@ const projectsData: Project[] = [
     }
   }
 ];
+
+const hasProjects = (category: string) => {
+  return projectsData.some(project => project.category === category);
+};
 
 const OurWorks = () => {
   const [activeCategory, setActiveCategory] = useState('All');
@@ -195,7 +192,7 @@ const OurWorks = () => {
                     behavior: 'smooth'
                   });
                 }}
-                className="px-8 py-4 border border-gray-800 text-gray-200 rounded-lg hover:border-gray-500 transition-all duration-300 group"
+                className="px-8 py-4  text-gray-400 hover:text-gray-200 rounded-lg  transition-all duration-300 group"
               >
                 Explore Our Works 
                 <span className="inline-block ml-2 transform group-hover:translate-y-1 transition-transform">↓</span>
@@ -212,7 +209,17 @@ const OurWorks = () => {
             categories={categories}
             activeCategory={activeCategory}
             onCategoryChange={setActiveCategory}
+            hasProjects={hasProjects}
           />
+
+          {activeCategory && 
+           activeCategory !== 'All' && 
+           !hasProjects(activeCategory) && (
+            <div className="text-center mt-8 text-gray-400">
+              <p className="text-xl">Projects Coming Soon!</p>
+              <p className="mt-2">We're working on exciting new projects in this category.</p>
+            </div>
+           )}
 
           <AnimatePresence mode="wait">
             <motion.div 

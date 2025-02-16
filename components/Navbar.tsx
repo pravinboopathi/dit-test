@@ -34,9 +34,10 @@ const Navbar: React.FC = () => {
           <Link href="/our-works" className="hover:text-orange-400 transition">Our Works</Link>
           <Link href="/contact" className="hover:text-orange-400 transition">Contact</Link>
           <Link href="/features" className="hover:text-orange-400 transition">Feature</Link>
+          <Link href="/products" className="hover:text-orange-400 transition">AI Solutions</Link>
 
           {/* Product Dropdown */}
-          <div className="relative">
+          {/* <div className="relative">
             <button
               onClick={() => setIsProductDropdownOpen(!isProductDropdownOpen)}
               className="flex items-center hover:text-orange-400 transition"
@@ -49,7 +50,7 @@ const Navbar: React.FC = () => {
                 <Link href="/products/ai-model" className="block px-4 py-2 ">AI Model</Link>
               </div>
             )}
-          </div>
+          </div> */}
         </div>
 
         {/* Buttons */}
@@ -83,6 +84,7 @@ const Navbar: React.FC = () => {
           <Link href="/about" className="block hover:text-orange-400">About</Link>
           <Link href="/our-works" className="block hover:text-orange-400">Our Works</Link>
           <Link href="/contact" className="block hover:text-orange-400">Contact</Link>
+          <Link href="/products" className="block hover:text-orange-400">AI Solutions</Link>  
           <Link href="/features" className="block hover:text-orange-400">Feature</Link>
           <Link href="/login" className="block hover:text-orange-400">Login</Link>
           <Link href="/get-started" className="block hover:text-orange-400">Get Started</Link>
